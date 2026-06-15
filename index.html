@@ -1345,15 +1345,15 @@ function submitName(){
 }
 
 // ══════════════════════════════════════════════════════════
-//  STORAGE
+// SUPABASE STORAGE
 // Paste your Supabase project URL and anon key below (see setup guide)
 // ══════════════════════════════════════════════════════════
-const SUPABASE_URL = https://wqzbzvwqawqqwdniafxg.supabase.co;      // 
-const SUPABASE_KEY = sb_publishable_vhjgjG0furca_ms7TVEfgw_vK_HASsx; // the public anon key
+const SUPABASE_URL = 'https://wqzbzvwqawqqwdniafxg.supabase.co';      // e.g. https://abcdxyz.supabase.co
+const SUPABASE_KEY = 'sb_publishable_vhjgjG0furca_ms7TVEfgw_vK_HASsx'; // the public anon key
 const SUPABASE_TABLE = 'results';
 
 function supabaseReady(){
-  return SUPABASE_URL !== https://wqzbzvwqawqqwdniafxg.supabase.co && SUPABASE_KEY !== sb_publishable_vhjgjG0furca_ms7TVEfgw_vK_HASsx;
+  return SUPABASE_URL !== 'YOUR_SUPABASE_URL_HERE' && SUPABASE_KEY !== 'YOUR_SUPABASE_ANON_KEY_HERE';
 }
 
 async function saveResult(name, data){
