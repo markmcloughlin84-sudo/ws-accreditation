@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workforce Services | Certified Seller Accreditation</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:#0d0d0f; --dark:#131318; --dark2:#1c1c25; --grey-dark:#2a2a35;
+  --grey-mid:#4a4a5a; --grey-light:#8a8a9a; --white:#f5f4f8; --off-white:#e8e6f0;
+  --pink:#e91e8c; --pink-light:#f472b6; --purple:#7c3aed; --purple-light:#a855f7;
+  --green:#22c55e; --red:#ef4444; --amber:#f59e0b;
+  --grad:linear-gradient(135deg,#e91e8c 0%,#7c3aed 100%);
+  --grad-soft:linear-gradient(135deg,#f472b620 0%,#a855f720 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--white);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.6;}
+
+/* SCREENS */
+.screen{display:none;min-height:100vh;position:relative;z-index:1;}
+.screen.active{display:flex;flex-direction:column;}
+
+/* INTRO */
+#screen-intro{align-items:center;justify-content:center;padding:2rem;text-align:center;overflow:hidden;}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;}
+.orb1{width:500px;height:500px;background:#e91e8c20;top:-200px;right:-100px;animation:orbF 8s ease-in-out infinite;}
+.orb2{width:400px;height:400px;background:#7c3aed25;bottom:-150px;left:-100px;animation:orbF 10s ease-in-out infinite reverse;}
+.orb3{width:300px;height:300px;background:#c026d315;top:40%;left:40%;animation:orbF 6s ease-in-out infinite 2s;}
+@keyframes orbF{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(30px,-20px) scale(1.05);}66%{transform:translate(-20px,15px) scale(.95);}}
+.intro-content{position:relative;z-index:2;max-width:680px;}
+.brand-pill{display:inline-flex;align-items:center;gap:8px;background:var(--dark2);border:1px solid #e91e8c40;border-radius:100px;padding:6px 16px 6px 8px;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pink-light);margin-bottom:2rem;animation:fadeUp .6s ease both;}
+.brand-pill .dot{width:20px;height:20px;background:var(--grad);border-radius:50%;}
+.intro-title{font-family:'Syne',sans-serif;font-size:clamp(2.4rem,6vw,4rem);font-weight:800;line-height:1.05;margin-bottom:1.5rem;animation:fadeUp .6s ease .1s both;}
+.grad{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.intro-sub{font-size:1rem;color:var(--grey-light);line-height:1.7;margin-bottom:2.5rem;animation:fadeUp .6s ease .2s both;}
+.intro-stats{display:flex;justify-content:center;gap:1.5rem;margin-bottom:2.5rem;animation:fadeUp .6s ease .3s both;flex-wrap:wrap;}
+.stat-pill{background:var(--dark2);border:1px solid var(--grey-dark);border-radius:12px;padding:.9rem 1.5rem;text-align:center;}
+.stat-pill .num{font-family:'Syne',sans-serif;font-size:1.7rem;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.stat-pill .lbl{font-size:.7rem;color:var(--grey-light);text-transform:uppercase;letter-spacing:.06em;margin-top:2px;}
+.btn-start{background:var(--grad);color:white;border:none;padding:1rem 2.5rem;border-radius:100px;font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 0 40px #e91e8c30;animation:fadeUp .6s ease .4s both;}
+.btn-start:hover{transform:translateY(-2px);box-shadow:0 0 60px #e91e8c50;}
+.intro-note{margin-top:1.5rem;font-size:.8rem;color:var(--grey-mid);animation:fadeUp .6s ease .5s both;}
+
+/* PROGRESS */
+.prog-bar{position:sticky;top:0;z-index:100;background:var(--dark);border-bottom:1px solid var(--grey-dark);padding:.75rem 1.5rem;display:flex;align-items:center;gap:1rem;}
+.prog-track{flex:1;height:4px;background:var(--grey-dark);border-radius:2px;overflow:hidden;}
+.prog-fill{height:100%;background:var(--grad);border-radius:2px;transition:width .4s ease;}
+.prog-meta{font-size:.78rem;color:var(--grey-light);white-space:nowrap;font-family:'Syne',sans-serif;}
+.sec-tag{font-size:.7rem;background:var(--dark2);border:1px solid var(--grey-dark);border-radius:100px;padding:3px 10px;color:var(--purple-light);white-space:nowrap;}
+
+/* QUIZ BODY */
+#screen-quiz{flex-direction:column;}
+.quiz-body{flex:1;padding:2rem 1rem 7rem;max-width:780px;margin:0 auto;width:100%;}
+
+/* SECTION INTRO CARD */
+.sec-intro{background:linear-gradient(135deg,#1c1c25,#1a1228);border:1px solid #e91e8c30;border-radius:20px;padding:1.75rem;margin-bottom:1.5rem;display:none;animation:fadeUp .5s ease both;}
+.sec-intro.show{display:block;}
+.sec-intro .si-icon{font-size:2rem;margin-bottom:.6rem;}
+.sec-intro h3{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:.4rem;}
+.sec-intro p{color:var(--grey-light);font-size:.88rem;line-height:1.6;}
+
+/* QUESTION CARD */
+.q-card{background:var(--dark2);border:1px solid var(--grey-dark);border-radius:20px;padding:2rem;animation:fadeUp .4s ease both;position:relative;overflow:hidden;}
+.q-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad);opacity:.6;}
+.q-type-badge{display:inline-block;font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;background:var(--grad-soft);border:1px solid #a855f740;color:var(--purple-light);padding:3px 10px;border-radius:100px;margin-bottom:1rem;}
+.q-text{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:600;line-height:1.4;margin-bottom:1.5rem;color:var(--white);}
+.scenario-box{background:var(--dark);border-left:3px solid var(--pink);border-radius:0 12px 12px 0;padding:1rem 1.25rem;margin-bottom:1.25rem;font-size:.9rem;color:var(--off-white);line-height:1.6;}
+.scenario-box .sc-lbl{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--pink);margin-bottom:.4rem;font-weight:600;}
+
+/* MCQ OPTIONS */
+.opts{display:grid;gap:.65rem;}
+.opt{background:var(--dark);border:1px solid var(--grey-dark);border-radius:12px;padding:.9rem 1.1rem;text-align:left;color:var(--white);font-family:'DM Sans',sans-serif;font-size:.92rem;cursor:pointer;transition:all .2s;display:flex;align-items:flex-start;gap:.75rem;line-height:1.45;}
+.opt:hover:not(:disabled){border-color:var(--purple-light);background:#1a1228;}
+.opt-letter{width:26px;height:26px;background:var(--grey-dark);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;flex-shrink:0;margin-top:1px;transition:background .2s;}
+.opt:hover:not(:disabled) .opt-letter{background:var(--purple);}
+.opt.correct{border-color:var(--green);background:#052e16;}
+.opt.correct .opt-letter{background:#16a34a;}
+.opt.wrong{border-color:var(--red);background:#1a0505;}
+.opt.wrong .opt-letter{background:#dc2626;}
+.opt.reveal{border-color:var(--green);background:#052e16;}
+.opt.reveal .opt-letter{background:#16a34a;}
+
+/* T/F */
+.tf-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
+.tf-btn{background:var(--dark);border:1px solid var(--grey-dark);border-radius:14px;padding:1.4rem 1rem;font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);cursor:pointer;transition:all .2s;text-align:center;}
+.tf-btn:hover:not(:disabled){border-color:var(--purple-light);background:#1a1228;}
+.tf-btn.correct{border-color:var(--green);background:#052e16;color:#4ade80;}
+.tf-btn.wrong{border-color:var(--red);background:#1a0505;color:#f87171;}
+.tf-btn.reveal{border-color:var(--green);background:#052e16;color:#4ade80;}
+
+/* FEEDBACK */
+.feedback{background:var(--dark);border-radius:12px;padding:1rem 1.25rem;margin-top:1rem;display:none;animation:fadeUp .3s ease both;font-size:.88rem;line-height:1.6;}
+.feedback.show{display:block;}
+.feedback.correct{border-left:3px solid var(--green);}
+.feedback.wrong{border-left:3px solid var(--red);}
+.fb-status{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;margin-bottom:.35rem;text-transform:uppercase;letter-spacing:.06em;}
+.feedback.correct .fb-status{color:#4ade80;}
+.feedback.wrong .fb-status{color:#f87171;}
+.feedback p{color:var(--grey-light);}
+
+/* NEXT BTN */
+.quiz-nav{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(to top,var(--black) 60%,transparent);padding:1.5rem;display:flex;justify-content:center;z-index:50;}
+.btn-next{background:var(--grad);color:white;border:none;padding:.9rem 2.5rem;border-radius:100px;font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;transition:all .2s;opacity:0;pointer-events:none;box-shadow:0 0 30px #e91e8c25;}
+.btn-next.vis{opacity:1;pointer-events:all;}
+.btn-next:hover{transform:translateY(-2px);box-shadow:0 0 50px #e91e8c40;}
+
+/* ═══════════ MINI-GAMES ═══════════ */
+
+/* MATCH GAME */
+.match-wrap{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.5rem;}
+.match-col h4{font-family:'Syne',sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--grey-light);margin-bottom:.5rem;text-align:center;}
+.match-item{background:var(--dark);border:1px solid var(--grey-dark);border-radius:10px;padding:.8rem .9rem;font-size:.85rem;cursor:pointer;transition:all .2s;line-height:1.35;text-align:center;min-height:64px;display:flex;align-items:center;justify-content:center;}
+.match-item:hover{border-color:var(--purple-light);}
+.match-item.selected{border-color:var(--pink);background:#1a1228;box-shadow:0 0 12px #e91e8c30;}
+.match-item.matched{border-color:var(--green);background:#052e16;cursor:default;opacity:.7;}
+.match-item.wrong-flash{border-color:var(--red);background:#1a0505;animation:shake .3s ease;}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-5px);}75%{transform:translateX(5px);};}
+.match-score{font-family:'Syne',sans-serif;font-size:.85rem;color:var(--grey-light);text-align:center;margin-bottom:.75rem;}
+
+/* SORT / PIPELINE GAME */
+.sort-instruction{font-size:.85rem;color:var(--grey-light);margin-bottom:1rem;line-height:1.5;}
+.sort-bank{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem;min-height:48px;padding:.5rem;background:var(--dark);border:1px dashed var(--grey-dark);border-radius:12px;}
+.sort-chip{background:var(--dark2);border:1px solid var(--purple-light);border-radius:8px;padding:.45rem .85rem;font-size:.83rem;cursor:pointer;transition:all .2s;user-select:none;white-space:nowrap;}
+.sort-chip:hover{background:#1a1228;transform:translateY(-1px);}
+.sort-chip.placed{background:#1a1228;border-color:var(--pink);}
+.sort-chip.locked{cursor:default;opacity:.6;}
+.sort-slots{display:flex;flex-direction:column;gap:.5rem;}
+.sort-slot{background:var(--dark);border:2px dashed var(--grey-dark);border-radius:10px;padding:.7rem 1rem;font-size:.85rem;min-height:48px;display:flex;align-items:center;gap:.6rem;transition:border-color .2s;}
+.sort-slot.filled{border-color:var(--purple-light);border-style:solid;}
+.sort-slot.correct-slot{border-color:var(--green)!important;background:#052e16;}
+.sort-slot.wrong-slot{border-color:var(--red)!important;background:#1a0505;}
+.slot-num{width:24px;height:24px;background:var(--grey-dark);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;flex-shrink:0;}
+.sort-check-btn{background:var(--grad-soft);border:1px solid var(--purple-light);color:var(--purple-light);padding:.6rem 1.4rem;border-radius:100px;font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;cursor:pointer;transition:all .2s;margin-top:.75rem;}
+.sort-check-btn:hover{background:var(--purple);color:white;border-color:var(--purple);}
+
+/* HOT-SEAT TIMER GAME */
+.hs-prompt{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:600;line-height:1.4;margin-bottom:1.25rem;}
+.hs-timer-wrap{display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;}
+.hs-timer-bar{flex:1;height:8px;background:var(--grey-dark);border-radius:4px;overflow:hidden;}
+.hs-timer-fill{height:100%;border-radius:4px;transition:width .1s linear,background .3s;}
+.hs-timer-num{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;width:36px;text-align:right;}
+.hs-opts{display:grid;gap:.6rem;}
+.hs-opt{background:var(--dark);border:1px solid var(--grey-dark);border-radius:12px;padding:.9rem 1.1rem;font-size:.9rem;cursor:pointer;transition:all .2s;display:flex;align-items:flex-start;gap:.75rem;color:var(--white);line-height:1.4;}
+.hs-opt:hover:not(:disabled){border-color:var(--purple-light);background:#1a1228;}
+.hs-opt-let{width:26px;height:26px;background:var(--grey-dark);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;flex-shrink:0;}
+.hs-opt.correct{border-color:var(--green);background:#052e16;}
+.hs-opt.correct .hs-opt-let{background:#16a34a;}
+.hs-opt.wrong{border-color:var(--red);background:#1a0505;}
+.hs-opt.wrong .hs-opt-let{background:#dc2626;}
+.hs-opt.reveal{border-color:var(--green);background:#052e16;}
+.hs-opt.reveal .hs-opt-let{background:#16a34a;}
+.hs-timeout-msg{color:var(--amber);font-size:.85rem;font-family:'Syne',sans-serif;font-weight:600;margin-bottom:.75rem;}
+
+/* WORD-DROP GAME */
+.wd-sentence{font-size:1rem;line-height:2.2;margin-bottom:1rem;}
+.wd-blank{display:inline-block;min-width:120px;height:28px;border-bottom:2px solid var(--purple-light);vertical-align:bottom;text-align:center;font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;color:var(--pink-light);cursor:pointer;transition:all .2s;padding:0 6px;}
+.wd-blank.filled{border-color:var(--pink);background:#1a1228;border-radius:6px 6px 0 0;}
+.wd-blank.correct-blank{border-color:var(--green);color:#4ade80;background:#052e16;border-radius:6px 6px 0 0;}
+.wd-blank.wrong-blank{border-color:var(--red);color:#f87171;background:#1a0505;border-radius:6px 6px 0 0;}
+.wd-bank{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;}
+.wd-chip{background:var(--dark2);border:1px solid var(--purple-light);border-radius:8px;padding:.4rem .85rem;font-size:.85rem;cursor:pointer;transition:all .2s;font-family:'Syne',sans-serif;font-weight:600;}
+.wd-chip:hover{background:#1a1228;transform:translateY(-1px);}
+.wd-chip.used{opacity:.35;cursor:default;pointer-events:none;}
+
+/* RESULTS */
+#screen-results{align-items:center;justify-content:flex-start;padding:2rem 1rem 4rem;overflow-y:auto;}
+.results-inner{max-width:720px;width:100%;margin:0 auto;}
+.score-hero{text-align:center;padding:3rem 1rem 2rem;position:relative;}
+.score-ring{width:160px;height:160px;margin:0 auto 1.5rem;position:relative;}
+.score-ring svg{transform:rotate(-90deg);}
+.ring-track{fill:none;stroke:var(--grey-dark);stroke-width:8;}
+.ring-fill{fill:none;stroke:url(#rg);stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset 1.5s cubic-bezier(.22,1,.36,1);}
+.ring-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.ring-pct{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.ring-pts{font-size:.72rem;color:var(--grey-light);text-transform:uppercase;letter-spacing:.06em;}
+.profile-badge{display:inline-flex;align-items:center;gap:.75rem;background:var(--dark2);border:1px solid #e91e8c50;border-radius:16px;padding:1rem 1.75rem;margin-bottom:1rem;}
+.p-icon{font-size:2rem;}
+.p-name{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.p-desc{font-size:.8rem;color:var(--grey-light);}
+.profile-scale{display:flex;align-items:center;margin:1.5rem auto;max-width:500px;background:var(--dark2);border:1px solid var(--grey-dark);border-radius:100px;overflow:hidden;height:36px;}
+.scale-node{flex:1;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--grey-mid);height:100%;border-right:1px solid var(--grey-dark);}
+.scale-node:last-child{border-right:none;}
+.scale-node.active{background:var(--grad);color:white;}
+.results-summary{font-size:1rem;color:var(--grey-light);line-height:1.6;margin-bottom:2rem;text-align:center;max-width:500px;margin-left:auto;margin-right:auto;}
+.breakdown-section{margin-bottom:2rem;}
+.breakdown-section h3{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;}
+.breakdown-section h3::before,.breakdown-section h3::after{content:'';flex:1;height:1px;background:var(--grey-dark);}
+.src-card{background:var(--dark2);border:1px solid var(--grey-dark);border-radius:16px;padding:1.25rem 1.5rem;margin-bottom:.75rem;display:flex;align-items:center;gap:1rem;}
+.src-icon{font-size:1.5rem;flex-shrink:0;}
+.src-info{flex:1;}
+.src-name{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:600;margin-bottom:3px;}
+.src-bar-wrap{height:5px;background:var(--grey-dark);border-radius:3px;overflow:hidden;}
+.src-bar{height:100%;border-radius:3px;background:var(--grad);}
+.src-score{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;white-space:nowrap;}
+.src-score.good{color:#4ade80;} .src-score.mid{color:#fbbf24;} .src-score.low{color:#f87171;}
+.coach-card{background:linear-gradient(135deg,#1c1c25,#1a1228);border:1px solid var(--grey-dark);border-radius:16px;padding:1.25rem 1.5rem;margin-bottom:.75rem;}
+.coach-card.strength{border-left:3px solid var(--green);}
+.coach-card.develop{border-left:3px solid var(--pink);}
+.coach-hdr{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem;}
+.coach-lbl{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;}
+.coach-card.strength .coach-lbl{color:#4ade80;}
+.coach-card.develop .coach-lbl{color:var(--pink-light);}
+.coach-card p{font-size:.88rem;color:var(--grey-light);line-height:1.6;}
+.badge-section{text-align:center;padding:2rem;background:var(--dark2);border:1px solid #e91e8c40;border-radius:20px;margin-top:2rem;}
+.badge-section h3{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:.5rem;}
+.badge-section p{font-size:.85rem;color:var(--grey-light);margin-bottom:1.5rem;}
+.badge-preview{width:180px;height:180px;margin:0 auto 1.5rem;}
+.badge-actions{display:flex;flex-direction:column;gap:.75rem;align-items:center;}
+.btn-dl{background:var(--grad);color:white;border:none;padding:.85rem 2rem;border-radius:100px;font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .2s;width:100%;max-width:300px;}
+.btn-dl:hover{transform:translateY(-2px);box-shadow:0 0 40px #e91e8c35;}
+.btn-locked{background:var(--dark);border:1px dashed var(--grey-dark);color:var(--grey-mid);padding:.85rem 2rem;border-radius:100px;font-family:'Syne',sans-serif;font-size:.9rem;width:100%;max-width:300px;text-align:center;}
+.btn-retake{background:transparent;border:1px solid var(--grey-dark);color:var(--grey-light);padding:.85rem 2rem;border-radius:100px;font-family:'Syne',sans-serif;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .2s;width:100%;max-width:300px;margin-top:.5rem;}
+.btn-retake:hover{border-color:var(--purple-light);color:var(--white);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.confetti-piece{position:fixed;width:8px;height:8px;opacity:0;animation:cFall linear forwards;pointer-events:none;z-index:999;border-radius:2px;}
+@keyframes cFall{0%{opacity:1;transform:translateY(-20px) rotate(0deg);}100%{opacity:0;transform:translateY(100vh) rotate(720deg);}}
+@media(max-width:480px){.tf-grid{grid-template-columns:1fr;}.profile-scale{display:none;}.match-item{font-size:.78rem;padding:.65rem .5rem;}}
+
+/* NAME CAPTURE SCREEN */
+#screen-name{align-items:center;justify-content:center;padding:2rem;text-align:center;overflow:hidden;}
+.name-card{background:var(--dark2);border:1px solid var(--grey-dark);border-radius:24px;padding:2.5rem 2rem;max-width:480px;width:100%;position:relative;z-index:2;animation:fadeUp .5s ease both;}
+.name-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad);border-radius:24px 24px 0 0;}
+.name-card h2{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:.5rem;}
+.name-card p{color:var(--grey-light);font-size:.9rem;margin-bottom:1.75rem;line-height:1.6;}
+.name-input-wrap{position:relative;margin-bottom:1rem;}
+.name-input{width:100%;background:var(--dark);border:1px solid var(--grey-dark);border-radius:12px;padding:.9rem 1.2rem;color:var(--white);font-family:'DM Sans',sans-serif;font-size:1rem;outline:none;transition:border-color .2s;}
+.name-input:focus{border-color:var(--purple-light);}
+.name-input::placeholder{color:var(--grey-mid);}
+.name-error{color:var(--red);font-size:.8rem;margin-bottom:.75rem;display:none;}
+.name-error.show{display:block;}
+.btn-submit-name{background:var(--grad);color:white;border:none;padding:.9rem 2rem;border-radius:100px;font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;transition:all .2s;width:100%;box-shadow:0 0 30px #e91e8c20;}
+.btn-submit-name:hover{transform:translateY(-2px);box-shadow:0 0 50px #e91e8c40;}
+
+/* LEADERBOARD SCREEN */
+#screen-leaderboard{align-items:center;justify-content:flex-start;padding:2rem 1rem 4rem;overflow-y:auto;}
+.lb-inner{max-width:720px;width:100%;margin:0 auto;}
+.lb-header{text-align:center;padding:2rem 0 1.5rem;}
+.lb-header h2{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;margin-bottom:.5rem;}
+.lb-header p{color:var(--grey-light);font-size:.9rem;}
+.lb-controls{display:flex;gap:.75rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+.lb-filter-btn{background:var(--dark2);border:1px solid var(--grey-dark);border-radius:100px;padding:.45rem 1.1rem;font-family:'Syne',sans-serif;font-size:.75rem;font-weight:600;color:var(--grey-light);cursor:pointer;transition:all .2s;}
+.lb-filter-btn:hover,.lb-filter-btn.active{border-color:var(--purple-light);color:var(--white);background:#1a1228;}
+.lb-export-btn{background:transparent;border:1px solid var(--grey-dark);border-radius:100px;padding:.45rem 1.1rem;font-family:'Syne',sans-serif;font-size:.75rem;font-weight:600;color:var(--grey-light);cursor:pointer;transition:all .2s;margin-left:auto;}
+.lb-export-btn:hover{border-color:var(--pink);color:var(--pink);}
+.lb-stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-bottom:1.5rem;}
+.lb-stat{background:var(--dark2);border:1px solid var(--grey-dark);border-radius:14px;padding:1rem;text-align:center;}
+.lb-stat .ls-num{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.lb-stat .ls-lbl{font-size:.68rem;color:var(--grey-light);text-transform:uppercase;letter-spacing:.06em;margin-top:2px;}
+.lb-table-wrap{background:var(--dark2);border:1px solid var(--grey-dark);border-radius:20px;overflow:hidden;}
+.lb-table{width:100%;border-collapse:collapse;}
+.lb-table thead tr{background:var(--dark);border-bottom:1px solid var(--grey-dark);}
+.lb-table th{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--grey-light);padding:.85rem 1rem;text-align:left;}
+.lb-table td{padding:.85rem 1rem;font-size:.88rem;border-bottom:1px solid #1e1e28;vertical-align:middle;}
+.lb-table tr:last-child td{border-bottom:none;}
+.lb-table tr:hover td{background:#1a1228;}
+.lb-rank{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;}
+.lb-rank.gold{color:#fbbf24;} .lb-rank.silver{color:#9ca3af;} .lb-rank.bronze{color:#92400e;}
+.lb-name-cell{font-weight:500;}
+.lb-score-pill{display:inline-block;font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;padding:3px 10px;border-radius:100px;}
+.lb-score-pill.high{background:#052e16;color:#4ade80;border:1px solid #16a34a;}
+.lb-score-pill.mid{background:#1c1505;color:#fbbf24;border:1px solid #d97706;}
+.lb-score-pill.low{background:#1a0505;color:#f87171;border:1px solid #dc2626;}
+.lb-profile-chip{font-size:.75rem;color:var(--purple-light);}
+.lb-badge-icon{font-size:1rem;}
+.lb-date{color:var(--grey-mid);font-size:.78rem;}
+.lb-empty{text-align:center;padding:3rem 1rem;color:var(--grey-light);}
+.lb-empty .le-icon{font-size:2.5rem;margin-bottom:.75rem;}
+.lb-empty p{font-size:.9rem;}
+.lb-back-btn{background:transparent;border:1px solid var(--grey-dark);color:var(--grey-light);padding:.7rem 1.5rem;border-radius:100px;font-family:'Syne',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;margin-top:1.5rem;}
+.lb-back-btn:hover{border-color:var(--purple-light);color:var(--white);}
+
+/* PASSCODE GATE */
+#screen-passcode{align-items:center;justify-content:center;padding:2rem;text-align:center;}
+.pc-card{background:var(--dark2);border:1px solid var(--grey-dark);border-radius:24px;padding:2.5rem 2rem;max-width:400px;width:100%;position:relative;z-index:2;animation:fadeUp .5s ease both;}
+.pc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad);border-radius:24px 24px 0 0;}
+.pc-card h2{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;margin-bottom:.5rem;}
+.pc-card p{color:var(--grey-light);font-size:.88rem;margin-bottom:1.5rem;}
+.pc-dots{display:flex;justify-content:center;gap:.6rem;margin-bottom:1.25rem;}
+.pc-dot{width:14px;height:14px;border-radius:50%;background:var(--grey-dark);transition:background .2s;}
+.pc-dot.filled{background:var(--grad-main,var(--pink));}
+.pc-dot.filled{background:var(--pink);}
+.pc-numpad{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;max-width:240px;margin:0 auto;}
+.pc-key{background:var(--dark);border:1px solid var(--grey-dark);border-radius:12px;padding:1rem;font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;cursor:pointer;transition:all .2s;color:var(--white);}
+.pc-key:hover{border-color:var(--purple-light);background:#1a1228;}
+.pc-key.del{font-size:.9rem;color:var(--grey-light);}
+.pc-error{color:var(--red);font-size:.82rem;margin-top:.75rem;height:1.2rem;}
+.pc-back{background:transparent;border:none;color:var(--grey-light);font-size:.82rem;cursor:pointer;margin-top:1.25rem;text-decoration:underline;}
+.access-input{width:100%;background:var(--dark);border:1px solid var(--grey-dark);border-radius:12px;padding:.9rem 1.1rem;color:var(--white);font-family:'DM Sans',sans-serif;font-size:1rem;outline:none;transition:border-color .2s;text-align:center;letter-spacing:.04em;margin-bottom:.5rem;}
+.access-input:focus{border-color:var(--purple-light);}
+.access-input::placeholder{color:var(--grey-mid);letter-spacing:normal;}
+
+/* Results leaderboard link */
+.view-lb-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--dark2);border:1px solid var(--grey-dark);border-radius:100px;padding:.6rem 1.25rem;font-family:'Syne',sans-serif;font-size:.78rem;font-weight:600;color:var(--grey-light);cursor:pointer;transition:all .2s;margin-top:1rem;text-decoration:none;}
+.view-lb-btn:hover{border-color:var(--purple-light);color:var(--white);}
+
+/* Manager button on home screen */
+.mgr-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--dark2);border:1px solid var(--grey-dark);border-radius:100px;padding:.55rem 1.3rem;font-family:'Syne',sans-serif;font-size:.75rem;font-weight:600;color:var(--grey-light);cursor:pointer;transition:all .2s;margin-top:1.5rem;animation:fadeUp .6s ease .55s both;}
+.mgr-btn:hover{border-color:var(--purple-light);color:var(--white);}
+
+/* Dashboard expandable detail rows */
+.lb-table tbody tr.main-row{cursor:pointer;}
+.lb-expand-arrow{color:var(--grey-mid);font-size:.8rem;transition:transform .2s;display:inline-block;}
+.main-row.expanded .lb-expand-arrow{transform:rotate(180deg);}
+.lb-detail-row{display:none;}
+.lb-detail-row.show{display:table-row;}
+.lb-detail-cell{padding:0!important;}
+.lb-detail-inner{padding:1.1rem 1.4rem 1.3rem;background:#12121a;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;border-bottom:1px solid var(--grey-dark);}
+.lb-detail-box{background:var(--dark2);border:1px solid var(--grey-dark);border-radius:12px;padding:1rem;}
+.lb-detail-box h4{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--grey-light);margin-bottom:.7rem;}
+.lb-mod{display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem;}
+.lb-mod:last-child{margin-bottom:0;}
+.lb-mod-name{font-size:.8rem;flex:1;}
+.lb-mod-bar{height:4px;background:var(--grey-dark);border-radius:2px;overflow:hidden;width:70px;flex-shrink:0;}
+.lb-mod-fill{height:100%;border-radius:2px;background:var(--grad);}
+.lb-mod-pct{font-family:'Syne',sans-serif;font-size:.74rem;font-weight:700;width:34px;text-align:right;white-space:nowrap;}
+.lb-mod-pct.g{color:#4ade80;}.lb-mod-pct.m{color:#fbbf24;}.lb-mod-pct.r{color:#f87171;}
+.lb-note{background:var(--dark);border-radius:9px;padding:.7rem .85rem;margin-bottom:.45rem;font-size:.8rem;color:var(--grey-light);line-height:1.55;}
+.lb-note:last-child{margin-bottom:0;}
+.lb-note.s{border-left:2px solid var(--green);}
+.lb-note.d{border-left:2px solid var(--pink);}
+.lb-note-lbl{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.25rem;}
+.lb-note.s .lb-note-lbl{color:#4ade80;}.lb-note.d .lb-note-lbl{color:var(--pink-light);}
+.lb-loading{text-align:center;padding:2.5rem;}
+.lb-loading .spin{width:30px;height:30px;border:3px solid var(--grey-dark);border-top-color:var(--pink);border-radius:50%;animation:lbspin 1s linear infinite;margin:0 auto .8rem;}
+@keyframes lbspin{to{transform:rotate(360deg);}}
+.lb-loading p{color:var(--grey-light);font-size:.86rem;}
+</style>
+</head>
+<body>
+
+<!-- ══ INTRO ══ -->
+<div id="screen-intro" class="screen active">
+  <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+  <div class="intro-content">
+    <div class="brand-pill"><span class="dot"></span>s|three · Workforce Services</div>
+    <h1 class="intro-title">Certified Seller<br><span class="grad">Accreditation</span></h1>
+    <p class="intro-sub">Prove you can recognise, qualify, and close Workforce Services opportunities. 30 challenges across 5 domains — classification drills, mapping exercises, discovery scenarios, live objection handling, and commercial knowledge.</p>
+    <div class="intro-stats">
+      <div class="stat-pill"><div class="num">30</div><div class="lbl">Challenges</div></div>
+      <div class="stat-pill"><div class="num">5</div><div class="lbl">Domains</div></div>
+      <div class="stat-pill"><div class="num">~15</div><div class="lbl">Minutes</div></div>
+    </div>
+    <button class="btn-start" onclick="goToAccessGate()">Start Assessment →</button>
+    <p class="intro-note">Score 80%+ to unlock your Certified Seller badge · Valid 12 months</p>
+    <button class="mgr-btn" onclick="goToPasscode()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;flex-shrink:0;"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Manager Dashboard
+    </button>
+  </div>
+</div>
+
+<!-- ══ QUIZ ══ -->
+<div id="screen-quiz" class="screen">
+  <div class="prog-bar">
+    <span class="sec-tag" id="sec-tag">Product Knowledge</span>
+    <div class="prog-track"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+    <span class="prog-meta" id="prog-meta">1 / 30</span>
+  </div>
+  <div class="quiz-body">
+    <div class="sec-intro" id="sec-intro">
+      <div class="si-icon" id="si-icon">📚</div>
+      <h3 id="si-title">Section</h3>
+      <p id="si-desc">Description</p>
+    </div>
+    <div id="q-area"></div>
+  </div>
+  <div class="quiz-nav"><button class="btn-next" id="btn-next" onclick="nextQ()">Next →</button></div>
+</div>
+
+<!-- ══ RESULTS ══ -->
+<div id="screen-results" class="screen">
+  <div class="results-inner">
+    <div class="score-hero">
+      <div class="score-ring">
+        <svg width="160" height="160" viewBox="0 0 160 160">
+          <defs><linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#e91e8c"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient></defs>
+          <circle class="ring-track" cx="80" cy="80" r="68"/>
+          <circle class="ring-fill" id="ring-fill" cx="80" cy="80" r="68" stroke-dasharray="427" stroke-dashoffset="427"/>
+        </svg>
+        <div class="ring-label"><span class="ring-pct" id="r-pct">0%</span><span class="ring-pts" id="r-pts">0/30</span></div>
+      </div>
+      <div class="profile-badge"><span class="p-icon" id="p-icon">🌱</span><div><div class="p-name" id="p-name">Novice</div><div class="p-desc" id="p-desc">Keep building</div></div></div>
+      <div class="profile-scale" id="p-scale">
+        <div class="scale-node" data-l="0">Novice</div><div class="scale-node" data-l="1">Learner</div>
+        <div class="scale-node" data-l="2">Practitioner</div><div class="scale-node" data-l="3">Certified</div>
+        <div class="scale-node" data-l="4">Pro</div>
+      </div>
+      <p class="results-summary" id="r-summary"></p>
+    </div>
+    <div class="breakdown-section"><h3>Section Breakdown</h3><div id="sec-results"></div></div>
+    <div class="breakdown-section"><h3>Your Coaching Report</h3><div id="coach-cards"></div></div>
+    <div class="badge-section" id="badge-section">
+      <h3>🏅 Workforce Services Certified Badge</h3>
+      <p id="badge-msg">Score 80%+ to unlock your badge.</p>
+      <div class="badge-preview"><canvas id="badgeCanvas" width="180" height="180"></canvas></div>
+      <div class="badge-actions" id="badge-actions"></div>
+    </div>
+    <div style="text-align:center;margin-top:1.5rem;">
+      <button class="btn-retake" onclick="retake()">↺ Retake Assessment</button>
+      <br>
+      <button class="view-lb-btn" onclick="showScreen('screen-passcode');resetPasscode()">📊 View Team Results</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ NAME CAPTURE ══ -->
+<div id="screen-name" class="screen">
+  <div class="orb orb1"></div><div class="orb orb2"></div>
+  <div style="position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem;">
+  <div class="name-card">
+    <h2>Almost there! 🎯</h2>
+    <p>Enter your name to save your results and see how you compare with the rest of the team.</p>
+    <div class="name-input-wrap">
+      <input class="name-input" id="name-input" type="text" placeholder="Your full name" maxlength="60" autocomplete="name" onkeydown="if(event.key==='Enter')submitName()"/>
+    </div>
+    <div class="name-error" id="name-error">Please enter your name to continue.</div>
+    <button class="btn-submit-name" onclick="submitName()">See My Results →</button>
+  </div>
+  </div>
+</div>
+
+<!-- ══ PASSCODE GATE ══ -->
+<div id="screen-passcode" class="screen">
+  <div class="orb orb1"></div><div class="orb orb2"></div>
+  <div style="position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem;flex-direction:column;">
+  <div class="pc-card">
+    <h2>🔐 Manager Access</h2>
+    <p>Enter the 4-digit passcode to view all team results.<br><small style="color:var(--grey-mid)">Default passcode: 2025</small></p>
+    <div class="pc-dots" id="pc-dots">
+      <div class="pc-dot" id="pcd-0"></div>
+      <div class="pc-dot" id="pcd-1"></div>
+      <div class="pc-dot" id="pcd-2"></div>
+      <div class="pc-dot" id="pcd-3"></div>
+    </div>
+    <div class="pc-numpad">
+      <button class="pc-key" onclick="pcKey('1')">1</button>
+      <button class="pc-key" onclick="pcKey('2')">2</button>
+      <button class="pc-key" onclick="pcKey('3')">3</button>
+      <button class="pc-key" onclick="pcKey('4')">4</button>
+      <button class="pc-key" onclick="pcKey('5')">5</button>
+      <button class="pc-key" onclick="pcKey('6')">6</button>
+      <button class="pc-key" onclick="pcKey('7')">7</button>
+      <button class="pc-key" onclick="pcKey('8')">8</button>
+      <button class="pc-key" onclick="pcKey('9')">9</button>
+      <button class="pc-key del" onclick="pcKey('del')">⌫</button>
+      <button class="pc-key" onclick="pcKey('0')">0</button>
+      <button class="pc-key" onclick="pcKey('enter')">↵</button>
+    </div>
+    <div class="pc-error" id="pc-error"></div>
+    <button class="pc-back" onclick="showScreen('screen-intro')">← Back to home</button>
+  </div>
+  </div>
+</div>
+
+<!-- ══ TEST ACCESS GATE ══ -->
+<div id="screen-access" class="screen">
+  <div class="orb orb1"></div><div class="orb orb2"></div>
+  <div style="position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem;">
+  <div class="pc-card">
+    <h2>🔑 Access Code</h2>
+    <p>Enter the access code provided by your team to begin the assessment.</p>
+    <input class="access-input" id="access-input" type="text" placeholder="Enter access code" autocomplete="off" autocapitalize="off" onkeydown="if(event.key==='Enter')checkAccess()"/>
+    <div class="pc-error" id="access-error"></div>
+    <button class="btn-start" style="width:100%;margin-top:.5rem;" onclick="checkAccess()">Continue →</button>
+    <button class="pc-back" onclick="showScreen('screen-intro')">← Back to home</button>
+  </div>
+  </div>
+</div>
+
+<!-- ══ LEADERBOARD ══ -->
+<div id="screen-leaderboard" class="screen">
+  <div class="lb-inner">
+    <div class="lb-header">
+      <div class="brand-pill" style="display:inline-flex;margin-bottom:1rem;"><span class="dot"></span>s|three · Results Dashboard</div>
+      <h2 class="intro-title" style="font-size:clamp(1.6rem,4vw,2.4rem);">Team <span class="grad">Results</span></h2>
+      <p style="color:var(--grey-light);font-size:.9rem;">All accreditation attempts — sorted by score</p>
+    </div>
+    <div class="lb-stats-row" id="lb-stats-row"></div>
+    <div class="lb-controls">
+      <button class="lb-filter-btn active" onclick="lbFilter('all',this)">All</button>
+      <button class="lb-filter-btn" onclick="lbFilter('certified',this)">Certified+ (80%+)</button>
+      <button class="lb-filter-btn" onclick="lbFilter('needs_work',this)">Needs Work (&lt;80%)</button>
+      <button class="lb-export-btn" onclick="loadLeaderboardData()">↻ Refresh</button>
+      <button class="lb-export-btn" onclick="exportCSV()">⬇ Export CSV</button>
+    </div>
+    <p style="color:var(--grey-mid);font-size:.76rem;margin-bottom:.75rem;">💡 Tap any row to see module scores and coaching notes.</p>
+    <div class="lb-table-wrap">
+      <div class="lb-loading" id="lb-loading" style="display:none">
+        <div class="spin"></div><p>Loading results…</p>
+      </div>
+      <table class="lb-table" id="lb-table">
+        <thead>
+          <tr>
+            <th>#</th><th>Name</th><th>Score</th><th>Profile</th><th>Badge</th><th>Modules</th><th>Date</th><th></th>
+          </tr>
+        </thead>
+        <tbody id="lb-tbody"></tbody>
+      </table>
+      <div class="lb-empty" id="lb-empty" style="display:none">
+        <div class="le-icon">📋</div>
+        <p>No results yet — participants will appear here after completing the assessment.</p>
+      </div>
+    </div>
+    <div style="text-align:center">
+      <button class="lb-back-btn" onclick="showScreen('screen-intro')">← Back to Assessment</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════════════════
+// QUESTION BANK  (30 items across 5 sections)
+// Types: mcq | tf | scenario | match | sort | hotseat | worddrop
+// ══════════════════════════════════════════════════════════════════
+const SECTIONS = [
+{
+  id:'recognize', name:'Recognise & Classify', icon:'🔍', tag:'Recognise & Classify',
+  desc:'Before you can sell Workforce Services, you need to correctly read what a client situation is telling you. This section tests your ability to classify engagements accurately — and avoid defaulting to staffing when the signals point elsewhere.',
+  questions:[
+    {
+      type:'mcq',
+      q:'Which situation most strongly suggests that staffing alone is not enough for this client?',
+      options:[
+        'The client is struggling to fill roles with the required level of experience',
+        'The client has pressure to accelerate delivery timelines across multiple projects',
+        'The client has ongoing coordination issues that are affecting execution quality',
+        'The client has increasing headcount demand across teams and competing priorities'
+      ],
+      answer:2,
+      feedback:"Coordination issues affecting execution quality are the clearest signal that staffing alone won\'t solve the problem. Adding more contractors without fixing coordination just adds more complexity. This is a Workforce Solutions Services conversation."
+    },
+    {
+      type:'mcq',
+      q:'Coordination and reporting gaps are causing delivery delays across multiple teams. How should this engagement be classified?',
+      options:[
+        'Workforce Solutions Services — manage coordination, reporting, and operational continuity',
+        'Staff Augmentation — add more experienced contractors to close the delivery gap',
+        'Workforce Technical Services — take ownership of outputs with formal acceptance criteria',
+        'Not Ready Yet — more discovery is needed before any classification can be made'
+      ],
+      answer:0,
+      feedback:"Coordination gaps + reporting failures across multiple teams = Workforce Solutions Services. WSS adds the management layer — operational services, reporting, and structured coordination — that staff aug simply doesn\'t include."
+    },
+    {
+      type:'mcq',
+      q:'A client needs deliverables completed and formally approved before the next project phase can begin. What engagement type does this describe?',
+      options:[
+        'Staff Augmentation — contractors working to client-directed timelines and processes',
+        'Workforce Solutions Services — structured management with enhanced onboarding and reporting',
+        'Not Ready Yet — the scope needs further definition before classification is possible',
+        'Workforce Technical Services — outputs owned by S|Three with defined acceptance criteria'
+      ],
+      answer:3,
+      feedback:"Formal approval before phase progression = defined deliverables with acceptance criteria = Workforce Technical Services. WTS is the right model when S|Three must own the output, not just supply the people or manage the workforce."
+    },
+    {
+      type:'mcq',
+      q:'What most clearly shifts an engagement from WSS into Workforce Technical Services?',
+      options:[
+        'The work spans multiple teams and competing priorities across the organisation',
+        'Outputs must be completed and formally accepted before work can progress',
+        'The engagement requires senior or highly specialised technical expertise',
+        'Project timelines are tightly constrained and cannot be extended'
+      ],
+      answer:1,
+      feedback:"The defining WTS trigger is formal acceptance of outputs — deliverables that must be completed and signed off before the next phase. Without that requirement, you\'re in WSS (service management) or staff aug (people supply), not WTS."
+    },
+    {
+      type:'scenario',
+      scenario:"A client asks your team to manage onboarding, coordination, and reporting across their contractor workforce — but makes clear they plan to retain full control over priorities and day-to-day execution.",
+      q:'How should this engagement be classified?',
+      options:[
+        'Staff Augmentation with added structure — the client retains control so it\'s still fundamentally staffing',
+        'Workforce Technical Services — S|Three takes responsibility for how work gets done and outcomes delivered',
+        'Not Ready Yet — the client\'s desire to retain control makes classification premature at this stage',
+        'Workforce Solutions Services — S|Three manages the workforce layer while the client owns execution direction'
+      ],
+      answer:3,
+      feedback:"WSS is exactly this: S|Three manages the workforce — onboarding, coordination, reporting — while the client retains strategic and execution ownership. WTS would only apply if S|Three were accountable for the outputs themselves, not just the workforce management layer."
+    },
+    {
+      type:'mcq',
+      q:'Which of the following scenarios is most likely still a Staff Augmentation engagement?',
+      options:[
+        'The client\'s own managers retain full ownership of contractor coordination and execution',
+        'Contractors follow a structured onboarding programme and participate in regular performance reviews',
+        'Contractors operate within a defined framework with reporting and coordination oversight',
+        'Contractors are embedded across multiple teams with varying levels of performance oversight'
+      ],
+      answer:0,
+      feedback:"If the client\'s managers still own coordination and execution — directing the contractors day-to-day — it\'s Staff Augmentation regardless of how structured the environment looks. The test is ownership of execution, not the presence of process."
+    }
+  ]
+},
+{
+  id:'map', name:'Map the Solution', icon:'🗺️', tag:'Map the Solution',
+  desc:'Client situations often include multiple overlapping challenges. Focus on identifying what you would prioritise and lead with first — the capability that best addresses the primary execution gap and creates the strongest entry point into Workforce Solutions Services.',
+  questions:[
+    {
+      type:'match',
+      q:'Match each client situation to the WSS capability that best addresses it:',
+      pairs:[
+        {left:'Contractors ramp inconsistently and productivity varies by team',right:'Enhanced Onboarding'},
+        {left:'Hiring managers spend significant time coordinating contractor activity',right:'Operational Services'},
+        {left:'Work is being delivered but quality varies and rework is increasing',right:'Performance Optimisation'},
+        {left:'Knowledge walks out the door when contractors roll off projects',right:'Knowledge Capture & Transfer'}
+      ],
+      feedback:"Each WSS capability targets a specific execution gap. Enhanced Onboarding fixes ramp inconsistency. Operational Services removes coordination burden from managers. Performance Optimisation addresses quality variance. Knowledge Capture prevents continuity loss at offboarding."
+    },
+    {
+      type:'match',
+      q:'Match each remaining client situation to the correct WSS capability:',
+      pairs:[
+        {left:'The client lacks visibility into contractor performance and cost data',right:'Financial & Operational Reporting'},
+        {left:'Transitions between contractors are creating project delays and context loss',right:'Offboarding'},
+        {left:'Contractors are performing inconsistently with no structured review process',right:'Performance Optimisation'},
+        {left:'The client cannot track hours, spend, or output across their contractor base',right:'Financial & Operational Reporting'}
+      ],
+      feedback:"Reporting gaps = Financial & Operational Reporting. Transition delays = structured Offboarding. Performance inconsistency without review = Performance Optimisation. Knowing which capability to lead with helps you frame the WSS conversation around the client\'s most urgent pain."
+    },
+    {
+      type:'mcq',
+      q:'Contractors are taking too long to become productive and output varies significantly across teams. Which WSS capability should be prioritised first?',
+      options:[
+        'Financial & Operational Reporting — to create visibility into where productivity gaps exist',
+        'Enhanced Onboarding — to standardise and accelerate ramp time across the contractor base',
+        'Performance Optimisation — to introduce structured review and improvement processes',
+        'Operational Services — to reduce the coordination burden causing the productivity variance'
+      ],
+      answer:1,
+      feedback:"Slow ramp time and inconsistent productivity are onboarding problems first. Enhanced Onboarding standardises the ramp experience — structured orientation, role clarity, system access, early touchpoints. Fix the entry point before optimising performance mid-engagement."
+    },
+    {
+      type:'scenario',
+      scenario:"A client tells you: 'We lose so much when a contractor leaves. By the time the next person starts, we\'re weeks behind.' Their projects involve complex technical processes built up over months.",
+      q:'Which WSS capability is the strongest lead for this conversation?',
+      options:[
+        'Enhanced Onboarding — to ensure the replacement contractor ramps quickly into the role',
+        'Performance Optimisation — to retain contractors longer and reduce the frequency of departures',
+        'Operational Services — to reduce the coordination burden that makes transitions so disruptive',
+        'Knowledge Capture & Transfer — to preserve expertise and reduce continuity loss at transitions'
+      ],
+      answer:3,
+      feedback:"The pain is continuity loss at transition — knowledge walking out the door. Knowledge Capture & Transfer directly addresses this: structured handover, documentation of expertise, and ensuring the next contractor can hit the ground running. That\'s the lead capability here."
+    },
+    {
+      type:'worddrop',
+      q:'Complete the description of WSS by placing the correct terms:',
+      sentence:'Workforce Solutions Services adds a [BLANK1] layer on top of personnel supply — covering enhanced [BLANK2], operational services, reporting, and knowledge [BLANK3].',
+      blanks:['BLANK1','BLANK2','BLANK3'],
+      answers:['management','onboarding','transfer'],
+      distractors:['billing','recruitment','headcount','coordination','approval'],
+      feedback:"WSS = management layer + enhanced onboarding + operational services + reporting + knowledge transfer. It\'s the structured service wrapper that transforms a contractor relationship into a managed workforce partnership."
+    }
+  ]
+},
+{
+  id:'qualify', name:'Ask the Right Questions', icon:'🎙️', tag:'Qualification',
+  desc:'The right question reveals how work is actually executed and where it breaks down. Focus on questions that uncover ownership, coordination failures, and execution gaps — not headcount, timeline, or budget.',
+  questions:[
+    {
+      type:'mcq',
+      q:'Which question best opens a Workforce Solutions Services opportunity in a discovery conversation?',
+      options:[
+        'What parts of this work require the most coordination or oversight from your team?',
+        'How many contractors are you planning to bring on across the next quarter?',
+        'What timeline are you working toward for this programme of work?',
+        'What budget has been approved or allocated for this initiative?'
+      ],
+      answer:0,
+      feedback:"Coordination and oversight questions uncover execution pain — the territory where WSS adds value. Timeline and budget questions keep the conversation in staffing mode. The goal is to surface where the client\'s internal bandwidth is being consumed by coordination work."
+    },
+    {
+      type:'mcq',
+      q:'Which question is most likely to keep the conversation anchored in staffing rather than opening a WSS opportunity?',
+      options:[
+        'Where does coordination break down when leadership isn\'t directly involved?',
+        'What would success look like if this programme ran exactly as you wanted it to?',
+        'How quickly do you need to add resources to the team or programme?',
+        'What tends to happen when timelines start to slip on engagements like this?'
+      ],
+      answer:2,
+      feedback:"\'How quickly can you add resources?\' is a staffing question — it anchors the solution in headcount speed, not execution quality. Questions about coordination breakdowns, success definitions, and what happens when things slip reveal the real execution gaps WSS is designed to solve."
+    },
+    {
+      type:'match',
+      q:'Match each client situation to the best discovery question to ask next:',
+      pairs:[
+        {left:'Contractors ramp inconsistently and performance varies across teams',right:'What does onboarding look like for contractors across different teams?'},
+        {left:'Hiring managers are overwhelmed by the volume of contractor coordination',right:'What parts of this work require the most day-to-day coordination from your team?'},
+        {left:'Quality varies and rework is increasing across the contractor base',right:'How is quality currently measured or reviewed on this type of work?'},
+        {left:'The client cannot clearly define what a successful outcome looks like',right:'How would you define success for this programme if it ran exactly as you wanted?'}
+      ],
+      feedback:"Discovery questions should mirror the execution pain. Onboarding inconsistency → ask about the onboarding process. Coordination overload → ask what coordination actually involves. Quality variance → ask how quality is measured. Undefined success → ask what good looks like."
+    },
+    {
+      type:'scenario',
+      scenario:"A client is experiencing clear coordination issues across their contractor base — but every time you try to explore the problem, they redirect the conversation back to how quickly you can add more contractors.",
+      q:'What is the biggest mistake you could make in this conversation?',
+      options:[
+        'Continuing to explore how coordination is managed and where it breaks down today',
+        'Asking what success would look like if the programme ran exactly as they wanted',
+        'Pausing to reframe the conversation around execution quality rather than resource speed',
+        'Matching the client\'s urgency and focusing your response on how quickly you can mobilise'
+      ],
+      answer:3,
+      feedback:"Following the client\'s lead into a speed-of-hire conversation means you end up back in staffing. The coordination pain is the real opportunity — your job is to hold the line on that conversation even when the client is pulling toward headcount. Speed without structure compounds the problem."
+    },
+    {
+      type:'scenario',
+      scenario:"A client says: 'Things work fine when our leadership team is directly involved — but the moment they step back, execution falls apart.'",
+      q:'What is the best question to ask next?',
+      options:[
+        'How many resources would you need to reduce leadership involvement in day-to-day delivery?',
+        'What specifically breaks down when leadership steps away — and who tends to step in?',
+        'What timeline is leadership working to before they need to step back from this programme?',
+        'What budget has been approved to address the dependency on leadership involvement?'
+      ],
+      answer:1,
+      feedback:"This answer uncovers the execution gap — what specifically fails, and what fills the vacuum. That\'s where WSS lives: structured coordination, clear ownership frameworks, and operational continuity that doesn\'t depend on leadership being in the room. Headcount, timeline, and budget questions miss it entirely."
+    },
+    {
+      type:'hotseat',
+      timerSecs:18,
+      q:'HOT SEAT — 18 seconds: A client keeps saying "we just need more contractors." What is your immediate next question?',
+      options:[
+        'What\'s driving the need for more support right now — is it capacity, coordination, or capability?',
+        'How many contractors do you need and what\'s your target start date for the first intake?',
+        'Should I get our delivery team started on sourcing candidates for the roles you need?',
+        'Have you considered whether a managed service model might be more cost-effective at this scale?'
+      ],
+      answer:0,
+      feedback:"\'What\'s driving the need?\' opens the door. Capacity (volume) stays in staffing. Coordination or capability signals WSS or WTS territory. Never accept \'more contractors\' as the requirement — always qualify the underlying need before shaping the solution."
+    }
+  ]
+},
+{
+  id:'apply', name:'Apply & Respond', icon:'💬', tag:'Apply & Respond',
+  desc:'You are in live client conversations. Select the response that best moves the discussion forward — maintaining qualification discipline and avoiding the pull back to staffing.',
+  questions:[
+    {
+      type:'scenario',
+      scenario:"You are in a client meeting. The client says: 'We already handle onboarding, coordination, and reporting ourselves — and it\'s working fine for us.'",
+      q:'What is the best response to reposition the conversation?',
+      options:[
+        'That\'s great — we can continue supporting on the staffing side as and when you need it',
+        'We can look at improving your tracking and reporting processes if that would be helpful',
+        'In that case, we\'d recommend moving straight to a Workforce Solutions Services model to future-proof that capability',
+        'What we often see is that coordination becomes much harder to sustain as teams scale — that\'s exactly where we can add value'
+      ],
+      answer:3,
+      feedback:"Validate what\'s working, then plant a forward-looking seed. \'Works fine now\' isn\'t a permanent state — scale, turnover, and leadership bandwidth will eventually strain it. Your job is to get them thinking about that future without dismissing their current capability."
+    },
+    {
+      type:'scenario',
+      scenario:"A client says: 'We\'d need to run this through our MSP the way we do for all our contractors.'",
+      q:'What is the correct response to protect the engagement structure?',
+      options:[
+        'We can work within your MSP structure — let\'s align on how best to position this with your vendor',
+        'These services are typically structured as SOW-based engagements rather than contingent labour through an MSP',
+        'We\'d need to position this as a standard staffing engagement to make the MSP route work commercially',
+        'Let\'s adjust the scope so it fits within your existing MSP process and procurement framework'
+      ],
+      answer:1,
+      feedback:"WSS and WTS are services, not contractor supply — they belong in SOW-based services procurement, not the contingent labour MSP. Conceding the MSP route misclassifies the engagement legally and commercially. Educate the client on the correct procurement path."
+    },
+    {
+      type:'scenario',
+      scenario:"You\'re in a competitive pitch and the client mentions: 'We\'re also speaking with Accenture about this.'",
+      q:'What is the strongest differentiating response?',
+      options:[
+        'We bring deep specialist STEM talent combined with service accountability — without the consulting overhead',
+        'We\'re more agile than Accenture — we can mobilise faster without the overhead of a large consulting firm',
+        'We\'re significantly more cost-effective than a big four consultancy at this scale of engagement',
+        'Our relationships are much more hands-on than Accenture — you\'ll have direct access to senior people throughout'
+      ],
+      answer:0,
+      feedback:"Don\'t compete on cost or speed — those are table stakes that Accenture can match or dismiss. The differentiator is the combination: deep STEM specialist talent (not generalist consultants) plus service accountability. That\'s a position Accenture genuinely can\'t replicate."
+    },
+    {
+      type:'scenario',
+      scenario:"A client is scaling rapidly, has high contractor turnover, and tells you they need to move fast. You\'ve just finished your intro call.",
+      q:'What should you do next?',
+      options:[
+        'Prepare and send a Workforce Solutions Services proposal to demonstrate pace and commercial readiness',
+        'Begin sourcing contractors immediately to show responsiveness to their urgency and scale need',
+        'Wait for the client to send a formal brief or RFP before investing further time in the account',
+        'Clarify coordination, onboarding, and ownership structure before shaping any solution or proposal'
+      ],
+      answer:3,
+      feedback:"Urgency is not a reason to skip qualification — it\'s a reason to qualify faster. Turnover + scale + speed signals are all WSS indicators, but you need to understand ownership, coordination structure, and what\'s actually breaking before you can shape the right solution."
+    },
+    {
+      type:'mcq',
+      q:'A client says: "We just need more contractors." What is the best immediate response?',
+      options:[
+        'Start the sourcing process straight away and keep them updated on candidate pipeline progress',
+        'Scale up the contractor base quickly to meet their immediate demand and demonstrate responsiveness',
+        'Ask what\'s driving the need for more support right now — is it capacity, coordination, or capability?',
+        'Recommend a Workforce Solutions Services model as a more structured approach to their growth needs'
+      ],
+      answer:2,
+      feedback:"\'What\'s driving the need?\' is the most important question in this moment. Capacity = staffing may be right. Coordination or capability = WSS or WTS territory. Jumping to sourcing or immediately recommending services both skip the qualification that defines the right solution."
+    },
+    {
+      type:'scenario',
+      scenario:"A client responds to your WSS positioning by saying: 'This sounds more expensive than what we\'re doing now.'",
+      q:'What is the most effective response?',
+      options:[
+        'How is coordination currently managed and costed — in your team\'s time and capacity today?',
+        'Let\'s look at adjusting the scope or pricing structure to bring the commercial investment down',
+        'I can offer a reduced rate for a longer contract commitment to make the numbers work for you',
+        'The additional value you\'re getting from WSS more than justifies the investment at this scale'
+      ],
+      answer:0,
+      feedback:"Never concede on price before reframing the comparison. The client is comparing your service fee to a contractor day rate — but the real comparison is total cost: their managers\' coordination hours, rework cost, turnover cost, and the operational burden they\'re currently absorbing internally."
+    },
+    {
+      type:'hotseat',
+      timerSecs:15,
+      q:'HOT SEAT — 15 seconds: When should you involve the Solutions Manager in a WS opportunity?',
+      options:[
+        'After the client has issued a formal RFP or request for proposal with defined requirements',
+        'During the pricing stage once you have a clear commercial structure agreed in principle',
+        'At the final stage when the client is ready to review and sign the Statement of Work',
+        'During qualification — as early as the discovery conversation to help shape the solution'
+      ],
+      answer:3,
+      feedback:"During qualification — not at RFP, not at pricing, not at SOW. Solutions Manager involvement at the discovery stage means the solution is shaped around real client need. Late involvement means you\'re reverse-engineering a solution onto a problem you haven\'t fully understood."
+    },
+    {
+      type:'scenario',
+      scenario:"A client hasn\'t fully defined their requirements yet. Scope is unclear, ownership hasn\'t been established, and success criteria don\'t exist. They\'re asking you to propose a solution.",
+      q:'What should you do?',
+      options:[
+        'Propose a flexible Workforce Solutions Services solution that can be adapted once scope becomes clearer',
+        'Define scope, establish ownership, and agree on success criteria before shaping any solution',
+        'Begin building a commercial proposal with indicative pricing based on comparable past engagements',
+        'Move the opportunity into staffing until the client is better prepared to engage on services'
+      ],
+      answer:1,
+      feedback:"An undefined scope is a \'Not Ready Yet\' signal — not a signal to guess. Define scope, establish who owns what, and agree what success looks like before you shape anything. Proposing without this foundation creates misaligned expectations and deals that fall apart after the win."
+    }
+  ]
+},
+{
+  id:'legal', name:'Legal, Delivery & Commercial', icon:'⚖️', tag:'Legal & Commercial',
+  desc:'The commercial and legal details that protect the deal — correct classification, the delivery process, liability, and pricing structure.',
+  questions:[
+    {
+      type:'mcq',
+      q:'What is the critical legal distinction between Staff Augmentation and Workforce Technical Services?',
+      options:[
+        'Staff Aug uses permanent staff; WTS uses independent contractors on project assignments',
+        'WTS requires a Master Services Agreement; Staff Aug can operate on a purchase order alone',
+        'Staff Aug spend is classified as contingent labour; WTS spend is professional services with S|Three accountable for outcomes',
+        'Staff Aug applies to STEM roles only; WTS covers all professional disciplines and functions'
+      ],
+      answer:2,
+      feedback:"Classification is legally critical. Staff Aug = contingent labour, client directs the individual. WTS = professional services, S|Three controls execution and owns outcomes. Misclassifying WTS as staff aug creates real legal and commercial exposure for both parties."
+    },
+    {
+      type:'sort',
+      q:'Put the Workforce Services Delivery Process stages in the correct order:',
+      items:['Execute','Close','Implement','Define / Plan','Initiate'],
+      correct:['Define / Plan','Initiate','Implement','Execute','Close'],
+      feedback:"Define/Plan → Initiate → Implement → Execute → Close. Each stage has defined activities: Define/Plan includes kickoff, scope confirmation, SOW establishment. Close includes client close, reporting close, reference letters, and SharePoint archive."
+    },
+    {
+      type:'scenario',
+      scenario:"A client says: 'If your engineer misses a critical deliverable on our validation project, who carries the liability?' You are pitching Workforce Technical Services.",
+      q:'How do you correctly position S|Three\'s liability?',
+      options:[
+        'WTS contracts include a Limitation of Liability from $1M, capped to S|Three\'s sector insurance limits, with acceptance criteria defined in the SOW',
+        'S|Three carries unlimited liability for all deliverables within a WTS engagement as standard policy',
+        'Liability rests with the individual engineer as an independent professional services provider',
+        'Liability is shared equally between S|Three and the client in proportion to each party\'s direction of the work'
+      ],
+      answer:0,
+      feedback:"Know your numbers: Limitation of Liability starts at $1M (not unlimited). Sector minimums: Technology $10M, Life Sciences $6M. Acceptance criteria in the SOW define what \'delivered\' means. This is a CFO-level conversation — know it cold before you\'re in the room."
+    },
+    {
+      type:'worddrop',
+      q:'Complete the Workforce Services pricing formula:',
+      sentence:'Workforce Services pricing = [BLANK1] Fee + (Optional) [BLANK2] Fee + [BLANK3].',
+      blanks:['BLANK1','BLANK2','BLANK3'],
+      answers:['Service','Deliverable','Labour'],
+      distractors:['Management','Placement','Hourly','Retainer','Commission'],
+      feedback:"Service Fee + Optional Deliverable Fee + Labour. This is not pure hourly T&M. Being fluent in this structure prevents commercial confusion and positions you as a credible partner — not just someone quoting contractor day rates."
+    },
+    {
+      type:'scenario',
+      scenario:"A client wants validation engineers on-site for a facility build. They say: 'We need S|Three to guarantee the validation sign-off — but our internal team will direct the engineers day-to-day and run the processes.'",
+      q:'How do you correctly classify and respond to this?',
+      options:[
+        'This is WTS — the client wants guaranteed outputs so it qualifies as outcome-based delivery',
+        'This is a hybrid — structure it as Staff Aug with a premium rate to reflect the delivery expectation',
+        'Accept the arrangement now and clarify the commercial and legal structure in the SOW later',
+        'There is a conflict: client direction means Staff Aug; S|Three owning sign-off requires WTS execution control — you must resolve this before proceeding'
+      ],
+      answer:3,
+      feedback:"Classic qualification trap. WTS requires S|Three to control execution — it cannot coexist with client-directed day-to-day management. You can\'t accept outcome accountability without execution control. Pick a model and structure it properly, or the SOW won\'t protect either party."
+    }
+  ]
+}
+];
+// ═══════════════════════════════════════════════════
+// ENGINE
+// ═══════════════════════════════════════════════════
+let allQ = [];
+let cur = 0;
+let answers = [];
+let secScores = {};
+let answered = false;
+let hsTimer = null;
+let matchState = {};
+let sortState = {};
+let wdState = {};
+
+function buildQ(){
+  allQ = [];
+  SECTIONS.forEach(sec=>{
+    sec.questions.forEach((q,i)=>{
+      allQ.push({...q, secId:sec.id, secName:sec.name, isFirst:i===0});
+    });
+  });
+}
+
+function startQuiz(){
+  buildQ();
+  cur=0; answers=[]; answered=false;
+  SECTIONS.forEach(s=>{ secScores[s.id]={correct:0,total:0}; });
+  showScreen('screen-quiz');
+  renderQ();
+}
+
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function renderQ(){
+  if(hsTimer){ clearInterval(hsTimer); hsTimer=null; }
+  answered=false;
+  const q=allQ[cur], total=allQ.length;
+  const pct=Math.round((cur/total)*100);
+  document.getElementById('prog-fill').style.width=pct+'%';
+  document.getElementById('prog-meta').textContent=`${cur+1} / ${total}`;
+  const sec=SECTIONS.find(s=>s.id===q.secId);
+  document.getElementById('sec-tag').textContent=sec.tag;
+
+  const intro=document.getElementById('sec-intro');
+  if(q.isFirst){
+    intro.classList.add('show');
+    document.getElementById('si-icon').textContent=sec.icon;
+    document.getElementById('si-title').textContent=sec.name;
+    document.getElementById('si-desc').textContent=sec.desc;
+  } else { intro.classList.remove('show'); }
+
+  const area=document.getElementById('q-area');
+  area.innerHTML='';
+  const card=document.createElement('div');
+  card.className='q-card';
+
+  const typeLabels={mcq:'Multiple Choice',tf:'True / False',scenario:'Client Scenario',match:'Match Up',sort:'Sequence Challenge',hotseat:'⚡ Hot Seat',worddrop:'Word Drop'};
+  card.innerHTML=`<div class="q-type-badge">${typeLabels[q.type]||'Question'}</div>`;
+
+  if(q.type==='mcq')      card.innerHTML+=buildMCQ(q,cur);
+  else if(q.type==='tf')  card.innerHTML+=buildTF(q,cur);
+  else if(q.type==='scenario') card.innerHTML+=buildScenario(q,cur);
+  else if(q.type==='match')    card.innerHTML+=buildMatch(q,cur);
+  else if(q.type==='sort')     card.innerHTML+=buildSort(q,cur);
+  else if(q.type==='hotseat')  card.innerHTML+=buildHotseat(q,cur);
+  else if(q.type==='worddrop') card.innerHTML+=buildWordDrop(q,cur);
+
+  card.innerHTML+=`<div class="feedback" id="fb"><div class="fb-status" id="fb-status"></div><p id="fb-text"></p></div>`;
+  area.appendChild(card);
+  document.getElementById('btn-next').classList.remove('vis');
+
+  // start hotseat timer AFTER card is in DOM
+  if(q.type==='hotseat') startHsTimer(q,cur);
+}
+
+// ── MCQ ──
+function buildMCQ(q,qi){
+  const letters=['A','B','C','D'];
+  let h=`<div class="q-text">${q.q}</div><div class="opts">`;
+  q.options.forEach((o,i)=>{
+    h+=`<button class="opt" onclick="selectMCQ(${qi},${i})" id="opt-${qi}-${i}"><span class="opt-letter">${letters[i]}</span><span>${o}</span></button>`;
+  });
+  return h+'</div>';
+}
+function selectMCQ(qi,chosen){
+  if(answered)return; answered=true;
+  const q=allQ[qi]; const ok=chosen===q.answer;
+  record(q,ok);
+  for(let i=0;i<q.options.length;i++){
+    const b=document.getElementById(`opt-${qi}-${i}`);
+    if(!b)continue; b.disabled=true;
+    if(i===chosen) b.classList.add(ok?'correct':'wrong');
+    else if(i===q.answer) b.classList.add('reveal');
+  }
+  showFB(ok,q.feedback);
+}
+
+// ── T/F ──
+function buildTF(q,qi){
+  return `<div class="q-text">${q.q}</div><div class="tf-grid">
+    <button class="tf-btn" onclick="selectTF(${qi},true)" id="tf-${qi}-T">✓ True</button>
+    <button class="tf-btn" onclick="selectTF(${qi},false)" id="tf-${qi}-F">✗ False</button>
+  </div>`;
+}
+function selectTF(qi,chosen){
+  if(answered)return; answered=true;
+  const q=allQ[qi]; const ok=chosen===q.answer;
+  record(q,ok);
+  const tBtn=document.getElementById(`tf-${qi}-T`);
+  const fBtn=document.getElementById(`tf-${qi}-F`);
+  tBtn.disabled=fBtn.disabled=true;
+  if(chosen===true) tBtn.classList.add(ok?'correct':'wrong');
+  else fBtn.classList.add(ok?'correct':'wrong');
+  if(q.answer===true&&!ok) tBtn.classList.add('reveal');
+  if(q.answer===false&&!ok) fBtn.classList.add('reveal');
+  showFB(ok,q.feedback);
+}
+
+// ── SCENARIO (=MCQ with scenario box) ──
+function buildScenario(q,qi){
+  const letters=['A','B','C','D'];
+  let h=`<div class="scenario-box"><div class="sc-lbl">Client Scenario</div>${q.scenario}</div>`;
+  h+=`<div class="q-text">${q.q}</div><div class="opts">`;
+  q.options.forEach((o,i)=>{
+    h+=`<button class="opt" onclick="selectScenario(${qi},${i})" id="sc-${qi}-${i}"><span class="opt-letter">${letters[i]}</span><span>${o}</span></button>`;
+  });
+  return h+'</div>';
+}
+function selectScenario(qi,chosen){
+  if(answered)return; answered=true;
+  const q=allQ[qi]; const ok=chosen===q.answer;
+  record(q,ok);
+  for(let i=0;i<q.options.length;i++){
+    const b=document.getElementById(`sc-${qi}-${i}`);
+    if(!b)continue; b.disabled=true;
+    if(i===chosen) b.classList.add(ok?'correct':'wrong');
+    else if(i===q.answer) b.classList.add('reveal');
+  }
+  showFB(ok,q.feedback);
+}
+
+// ── MATCH GAME ──
+function buildMatch(q,qi){
+  matchState[qi]={selected:null,matched:[],correct:0};
+  const rights=[...q.pairs.map(p=>p.right)].sort(()=>Math.random()-.5);
+  let h=`<div class="q-text">${q.q}</div>`;
+  h+=`<div class="match-score" id="ms-${qi}">Matched: 0 / ${q.pairs.length}</div>`;
+  h+=`<div class="match-wrap"><div><div class="match-col"><h4>Term</h4>`;
+  q.pairs.forEach((p,i)=>{
+    h+=`<div class="match-item" id="ml-${qi}-${i}" onclick="matchLeft(${qi},${i})">${p.left}</div>`;
+  });
+  h+=`</div></div><div><div class="match-col"><h4>Description</h4>`;
+  rights.forEach((r,i)=>{
+    h+=`<div class="match-item" id="mr-${qi}-${i}" onclick="matchRight(${qi},${i},'${escQ(r)}')">${r}</div>`;
+  });
+  h+=`</div></div></div>`;
+  return h;
+}
+function escQ(s){return s.replace(/'/g,"\\'");}
+function matchLeft(qi,li){
+  if(answered)return;
+  const st=matchState[qi];
+  if(st.matched.includes('L'+li))return;
+  document.querySelectorAll(`[id^="ml-${qi}-"]`).forEach(el=>el.classList.remove('selected'));
+  document.getElementById(`ml-${qi}-${li}`).classList.add('selected');
+  st.selected={side:'left',idx:li};
+}
+function matchRight(qi,ri,rText){
+  if(answered)return;
+  const st=matchState[qi];
+  if(!st.selected||st.selected.side!=='left')return;
+  const li=st.selected.idx;
+  const q=allQ[qi];
+  const leftTerm=q.pairs[li].left;
+  const correctRight=q.pairs.find(p=>p.left===leftTerm).right;
+  const lEl=document.getElementById(`ml-${qi}-${li}`);
+  const rEl=document.getElementById(`mr-${qi}-${ri}`);
+  if(rText===correctRight){
+    lEl.classList.remove('selected');lEl.classList.add('matched');
+    rEl.classList.add('matched');
+    st.matched.push('L'+li,'R'+ri);
+    st.correct++;
+    document.getElementById(`ms-${qi}`).textContent=`Matched: ${st.correct} / ${q.pairs.length}`;
+    if(st.correct===q.pairs.length){
+      answered=true;
+      record(q,true);
+      showFB(true,q.feedback);
+    }
+  } else {
+    lEl.classList.add('wrong-flash'); rEl.classList.add('wrong-flash');
+    setTimeout(()=>{lEl.classList.remove('wrong-flash','selected');rEl.classList.remove('wrong-flash');},400);
+  }
+  st.selected=null;
+}
+
+// ── SORT GAME ──
+function buildSort(q,qi){
+  sortState[qi]={placed:new Array(q.correct.length).fill(null)};
+  const shuffled=[...q.items].sort(()=>Math.random()-.5);
+  let h=`<div class="q-text">${q.q}</div>`;
+  h+=`<div class="sort-instruction">Tap a card from the bank, then tap a slot to place it.</div>`;
+  h+=`<div class="sort-bank" id="sb-${qi}">`;
+  shuffled.forEach((item,i)=>{
+    h+=`<div class="sort-chip" id="sc-${qi}-${i}" onclick="sortPickChip(${qi},${i},'${escQ(item)}')">${item}</div>`;
+  });
+  h+=`</div><div class="sort-slots" id="ss-${qi}">`;
+  q.correct.forEach((_,i)=>{
+    h+=`<div class="sort-slot" id="slot-${qi}-${i}" onclick="sortDropSlot(${qi},${i})"><span class="slot-num">${i+1}</span><span id="slottxt-${qi}-${i}" style="color:var(--grey-mid)">— place here —</span></div>`;
+  });
+  h+=`</div>`;
+  h+=`<button class="sort-check-btn" onclick="checkSort(${qi})">Check Order</button>`;
+  return h;
+}
+let sortSelected={qi:null,chipIdx:null,text:null};
+function sortPickChip(qi,ci,text){
+  if(answered)return;
+  // deselect previous
+  document.querySelectorAll(`[id^="sc-${qi}-"]`).forEach(el=>el.style.outline='');
+  const el=document.getElementById(`sc-${qi}-${ci}`);
+  if(el.classList.contains('placed')||el.classList.contains('locked'))return;
+  el.style.outline='2px solid var(--pink)';
+  sortSelected={qi,chipIdx:ci,text};
+}
+function sortDropSlot(qi,si){
+  if(answered)return;
+  if(sortSelected.qi!==qi)return;
+  const st=sortState[qi];
+  // if slot already filled, swap back
+  if(st.placed[si]){
+    const prevChipEl=document.querySelector(`[id^="sc-${qi}-"]`+`[data-placed-slot="${si}"]`);
+    if(prevChipEl){ prevChipEl.classList.remove('placed'); prevChipEl.removeAttribute('data-placed-slot'); }
+  }
+  st.placed[si]=sortSelected.text;
+  const chipEl=document.getElementById(`sc-${qi}-${sortSelected.chipIdx}`);
+  chipEl.classList.add('placed'); chipEl.style.outline=''; chipEl.dataset.placedSlot=si;
+  document.getElementById(`slottxt-${qi}-${si}`).textContent=sortSelected.text;
+  document.getElementById(`slot-${qi}-${si}`).classList.add('filled');
+  sortSelected={qi:null,chipIdx:null,text:null};
+}
+function checkSort(qi){
+  if(answered)return;
+  const q=allQ[qi]; const st=sortState[qi];
+  if(st.placed.some(p=>p===null)){ 
+    alert('Place all items before checking.'); return; 
+  }
+  let ok=true;
+  st.placed.forEach((item,i)=>{
+    const slot=document.getElementById(`slot-${qi}-${i}`);
+    if(item===q.correct[i]){ slot.classList.add('correct-slot'); }
+    else { slot.classList.add('wrong-slot'); ok=false; }
+  });
+  // lock chips
+  document.querySelectorAll(`[id^="sc-${qi}-"]`).forEach(el=>el.classList.add('locked'));
+  answered=true;
+  record(q,ok);
+  showFB(ok,q.feedback);
+}
+
+// ── HOT SEAT ──
+function buildHotseat(q,qi){
+  const letters=['A','B','C','D'];
+  let h=`<div class="hs-timer-wrap"><div class="hs-timer-bar"><div class="hs-timer-fill" id="htf-${qi}" style="width:100%;background:var(--green)"></div></div><div class="hs-timer-num" id="htn-${qi}">${q.timerSecs}</div></div>`;
+  h+=`<div class="hs-prompt">${q.q}</div><div class="hs-opts">`;
+  q.options.forEach((o,i)=>{
+    h+=`<button class="hs-opt" onclick="selectHotseat(${qi},${i})" id="hs-${qi}-${i}"><span class="hs-opt-let">${letters[i]}</span><span>${o}</span></button>`;
+  });
+  h+='</div>';
+  return h;
+}
+function startHsTimer(q,qi){
+  let remaining=q.timerSecs;
+  const fillEl=document.getElementById(`htf-${qi}`);
+  const numEl=document.getElementById(`htn-${qi}`);
+  if(!fillEl)return;
+  hsTimer=setInterval(()=>{
+    remaining--;
+    const pct=(remaining/q.timerSecs)*100;
+    if(fillEl){ fillEl.style.width=pct+'%'; fillEl.style.background=pct>50?'var(--green)':pct>25?'var(--amber)':'var(--red)'; }
+    if(numEl) numEl.textContent=remaining;
+    if(remaining<=0){
+      clearInterval(hsTimer); hsTimer=null;
+      if(!answered){ timeoutHotseat(qi); }
+    }
+  },1000);
+}
+function selectHotseat(qi,chosen){
+  if(answered)return;
+  if(hsTimer){ clearInterval(hsTimer); hsTimer=null; }
+  answered=true;
+  const q=allQ[qi]; const ok=chosen===q.answer;
+  record(q,ok);
+  for(let i=0;i<q.options.length;i++){
+    const b=document.getElementById(`hs-${qi}-${i}`);
+    if(!b)continue; b.disabled=true;
+    if(i===chosen) b.classList.add(ok?'correct':'wrong');
+    else if(i===q.answer) b.classList.add('reveal');
+  }
+  showFB(ok,q.feedback);
+}
+function timeoutHotseat(qi){
+  answered=true;
+  const q=allQ[qi];
+  record(q,false);
+  for(let i=0;i<q.options.length;i++){
+    const b=document.getElementById(`hs-${qi}-${i}`);
+    if(!b)continue; b.disabled=true;
+    if(i===q.answer) b.classList.add('reveal');
+  }
+  const fb=document.getElementById('fb');
+  fb.classList.add('show','wrong');
+  document.getElementById('fb-status').textContent='⏱ Time\'s up!';
+  document.getElementById('fb-text').textContent=q.feedback;
+  document.getElementById('btn-next').classList.add('vis');
+}
+
+// ── WORD DROP ──
+function buildWordDrop(q,qi){
+  wdState[qi]={filled:{},selectedChip:null};
+  // render sentence with blank spans
+  let sentence=q.sentence;
+  q.blanks.forEach((b,i)=>{
+    sentence=sentence.replace(`[${b}]`,`<span class="wd-blank" id="wb-${qi}-${i}" onclick="wdClickBlank(${qi},${i})">___</span>`);
+  });
+  // all chips = answers + distractors, shuffled
+  const chips=[...q.answers,...q.distractors].sort(()=>Math.random()-.5);
+  let h=`<div class="q-text">${q.q}</div>`;
+  h+=`<div class="wd-sentence">${sentence}</div>`;
+  h+=`<div class="wd-bank" id="wdbank-${qi}">`;
+  chips.forEach((c,i)=>{
+    h+=`<div class="wd-chip" id="wdc-${qi}-${i}" onclick="wdClickChip(${qi},${i},'${escQ(c)}')">${c}</div>`;
+  });
+  h+='</div>';
+  h+=`<button class="sort-check-btn" onclick="checkWordDrop(${qi})">Check Answer</button>`;
+  return h;
+}
+function wdClickChip(qi,ci,text){
+  if(answered)return;
+  const st=wdState[qi];
+  document.querySelectorAll(`[id^="wdc-${qi}-"]`).forEach(el=>el.style.outline='');
+  const el=document.getElementById(`wdc-${qi}-${ci}`);
+  if(el.classList.contains('used'))return;
+  el.style.outline='2px solid var(--pink)';
+  st.selectedChip={ci,text};
+}
+function wdClickBlank(qi,bi){
+  if(answered)return;
+  const st=wdState[qi];
+  if(!st.selectedChip)return;
+  // if blank already had a chip, return old chip
+  if(st.filled[bi]!==undefined){
+    const oldCI=st.filled[bi].ci;
+    const oldEl=document.getElementById(`wdc-${qi}-${oldCI}`);
+    if(oldEl){ oldEl.classList.remove('used'); oldEl.style.outline=''; }
+  }
+  st.filled[bi]=st.selectedChip;
+  const chip=document.getElementById(`wdc-${qi}-${st.selectedChip.ci}`);
+  chip.classList.add('used'); chip.style.outline='';
+  const blank=document.getElementById(`wb-${qi}-${bi}`);
+  blank.textContent=st.selectedChip.text; blank.classList.add('filled');
+  st.selectedChip=null;
+  document.querySelectorAll(`[id^="wdc-${qi}-"]`).forEach(el=>el.style.outline='');
+}
+function checkWordDrop(qi){
+  if(answered)return;
+  const q=allQ[qi]; const st=wdState[qi];
+  if(Object.keys(st.filled).length<q.blanks.length){ alert('Fill all blanks first.'); return; }
+  let allOk=true;
+  q.blanks.forEach((b,i)=>{
+    const blank=document.getElementById(`wb-${qi}-${i}`);
+    const ok=st.filled[i]&&st.filled[i].text===q.answers[i];
+    blank.classList.remove('filled');
+    blank.classList.add(ok?'correct-blank':'wrong-blank');
+    if(!ok){ allOk=false; blank.textContent=q.answers[i]; }
+  });
+  document.querySelectorAll(`[id^="wdc-${qi}-"]`).forEach(el=>el.classList.add('locked'));
+  answered=true;
+  record(q,allOk);
+  showFB(allOk,q.feedback);
+}
+
+// ── SHARED ──
+function record(q,ok){
+  answers.push({secId:q.secId,correct:ok});
+  secScores[q.secId].total++;
+  if(ok) secScores[q.secId].correct++;
+}
+function showFB(ok,text){
+  const fb=document.getElementById('fb');
+  fb.classList.add('show',ok?'correct':'wrong');
+  document.getElementById('fb-status').textContent=ok?'✓ Correct!':'✗ Not quite';
+  document.getElementById('fb-text').textContent=text;
+  document.getElementById('btn-next').classList.add('vis');
+}
+function nextQ(){
+  cur++;
+  if(cur>=allQ.length) showNameCapture();
+  else { renderQ(); window.scrollTo(0,0); }
+}
+
+// ═══════════════════════════════════════════════════
+// NAME CAPTURE + STORAGE
+// ═══════════════════════════════════════════════════
+let pendingResultData = null;
+
+function showNameCapture(){
+  const total = allQ.length;
+  const correct = answers.filter(a=>a.correct).length;
+  const pct = Math.round((correct/total)*100);
+  const profile = PROFILES.find(p=>pct>=p.min&&pct<=p.max)||PROFILES[0];
+  const secBreakdown = {};
+  const coachingNotes = {};
+  SECTIONS.forEach(sec=>{
+    const sc = secScores[sec.id];
+    const sp = sc.total>0 ? Math.round((sc.correct/sc.total)*100) : 0;
+    secBreakdown[sec.id] = { correct:sc.correct, total:sc.total, pct:sp };
+    const isStr = sp>=70;
+    coachingNotes[sec.id] = { isStrength:isStr, note: isStr ? COACH[sec.id].strength : COACH[sec.id].develop };
+  });
+  pendingResultData = { pct, correct, total, profile, secBreakdown, coachingNotes, badgeEarned: pct>=80 };
+  showScreen('screen-name');
+  setTimeout(()=>{ const inp=document.getElementById('name-input'); if(inp){ inp.value=''; inp.focus(); } }, 300);
+}
+
+function submitName(){
+  const inp = document.getElementById('name-input');
+  const errEl = document.getElementById('name-error');
+  const name = inp ? inp.value.trim() : '';
+  if(!name){ errEl.classList.add('show'); return; }
+  errEl.classList.remove('show');
+  pendingResultData._name = name;
+  saveResult(name, pendingResultData);
+  showResults(name, pendingResultData);
+}
+
+// ══════════════════════════════════════════════════════════
+//  STORAGE
+// Paste your Supabase project URL and anon key below (see setup guide)
+// ══════════════════════════════════════════════════════════
+const SUPABASE_URL = https://wqzbzvwqawqqwdniafxg.supabase.co;      // 
+const SUPABASE_KEY = sb_publishable_vhjgjG0furca_ms7TVEfgw_vK_HASsx; // the public anon key
+const SUPABASE_TABLE = 'results';
+
+function supabaseReady(){
+  return SUPABASE_URL !== https://wqzbzvwqawqqwdniafxg.supabase.co && SUPABASE_KEY !== sb_publishable_vhjgjG0furca_ms7TVEfgw_vK_HASsx;
+}
+
+async function saveResult(name, data){
+  if(!supabaseReady()){ console.warn('Supabase not configured — see setup guide.'); return; }
+  const sb = data.secBreakdown;
+  const cn = data.coachingNotes;
+  // Compose a single coaching-notes string: "✓ Section: note || ⚑ Section: note"
+  const coachStr = SECTIONS.map(sec=>{
+    const tag = cn[sec.id].isStrength ? '✓' : '⚑';
+    return `${tag} ${sec.name}: ${cn[sec.id].note}`;
+  }).join(' || ');
+  const row = {
+    name: name,
+    score_pct: data.pct,
+    correct: data.correct,
+    total: data.total,
+    profile_name: data.profile.name,
+    profile_icon: data.profile.icon,
+    badge_earned: data.badgeEarned,
+    recognize_pct: (sb.recognize||{}).pct||0,
+    map_pct: (sb.map||{}).pct||0,
+    qualify_pct: (sb.qualify||{}).pct||0,
+    apply_pct: (sb.apply||{}).pct||0,
+    legal_pct: (sb.legal||{}).pct||0,
+    coaching_notes: coachStr,
+    created_at: new Date().toISOString()
+  };
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/${SUPABASE_TABLE}`, {
+      method: 'POST',
+      headers: {
+        'apikey': SUPABASE_KEY,
+        'Authorization': 'Bearer ' + SUPABASE_KEY,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify(row)
+    });
+    if(!res.ok){ console.warn('Supabase save failed:', res.status, await res.text()); }
+  } catch(e){ console.warn('Supabase save error:', e); }
+}
+
+async function loadResults(){
+  if(!supabaseReady()) return [];
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/${SUPABASE_TABLE}?select=*&order=score_pct.desc`, {
+      headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY }
+    });
+    if(!res.ok){ console.warn('Supabase load failed:', res.status); return []; }
+    const rows = await res.json();
+    // Normalise into the shape the dashboard expects
+    return rows.map(r=>({
+      name: r.name,
+      pct: Number(r.score_pct),
+      correct: r.correct,
+      total: r.total,
+      profileName: r.profile_name,
+      profileIcon: r.profile_icon,
+      badgeEarned: r.badge_earned,
+      recognize: Number(r.recognize_pct||0),
+      map: Number(r.map_pct||0),
+      qualify: Number(r.qualify_pct||0),
+      apply: Number(r.apply_pct||0),
+      legal: Number(r.legal_pct||0),
+      coachingNotes: r.coaching_notes||'',
+      date: r.created_at
+    }));
+  } catch(e){ console.warn('Supabase load error:', e); return []; }
+}
+
+// ── TEST ACCESS CODE (for participants to start the assessment) ──
+const ACCESS_CODE = 'sthree';   // change this to whatever code you give participants
+
+function goToAccessGate(){
+  const inp=document.getElementById('access-input');
+  const err=document.getElementById('access-error');
+  if(inp) inp.value='';
+  if(err) err.textContent='';
+  showScreen('screen-access');
+  setTimeout(()=>{ if(inp) inp.focus(); },300);
+}
+function checkAccess(){
+  const inp=document.getElementById('access-input');
+  const err=document.getElementById('access-error');
+  const val=inp ? inp.value.trim().toLowerCase() : '';
+  if(val===ACCESS_CODE.toLowerCase()){
+    err.textContent='';
+    startQuiz();
+  } else {
+    err.textContent='Incorrect access code. Please check and try again.';
+  }
+}
+
+// ── PASSCODE ──
+const PASSCODE = '2025';
+let pcEntry = '';
+
+function resetPasscode(){ pcEntry=''; updatePcDots(); document.getElementById('pc-error').textContent=''; }
+function goToPasscode(){ resetPasscode(); showScreen('screen-passcode'); }
+
+function pcKey(k){
+  if(k==='del'){ pcEntry=pcEntry.slice(0,-1); updatePcDots(); return; }
+  if(k==='enter'){ checkPasscode(); return; }
+  if(pcEntry.length>=4) return;
+  pcEntry+=k; updatePcDots();
+  if(pcEntry.length===4) setTimeout(checkPasscode,200);
+}
+function updatePcDots(){
+  for(let i=0;i<4;i++){
+    const d=document.getElementById('pcd-'+i);
+    if(d) d.classList.toggle('filled', i<pcEntry.length);
+  }
+}
+function checkPasscode(){
+  if(pcEntry===PASSCODE){ showLeaderboard(); }
+  else {
+    document.getElementById('pc-error').textContent='Incorrect passcode. Try again.';
+    pcEntry=''; updatePcDots();
+  }
+}
+
+// ══════════════════════════════════════════════════════════
+// MANAGER DASHBOARD
+// ══════════════════════════════════════════════════════════
+const LB_SEC_KEYS  = ['recognize','map','qualify','apply','legal'];
+const LB_SEC_SHORT = ['Recognise','Map','Qualify','Apply','Legal'];
+const LB_SEC_FULL  = ['Recognise & Classify','Map the Solution','Ask the Right Questions','Apply & Respond','Legal, Delivery & Commercial'];
+
+let lbAllData = [];
+let lbFilter_current = 'all';
+
+async function showLeaderboard(){
+  showScreen('screen-leaderboard');
+  document.getElementById('lb-loading').style.display='block';
+  document.getElementById('lb-table').style.display='none';
+  document.getElementById('lb-empty').style.display='none';
+  const all = await loadResults();
+  lbAllData = [...all].sort((a,b)=>b.pct-a.pct);
+  document.getElementById('lb-loading').style.display='none';
+  document.getElementById('lb-table').style.display='table';
+  lbFilter_current='all';
+  document.querySelectorAll('.lb-filter-btn').forEach((b,i)=>b.classList.toggle('active', i===0));
+  renderLeaderboard();
+}
+async function loadLeaderboardData(){ await showLeaderboard(); }
+
+function renderLeaderboard(){
+  let filtered = lbAllData;
+  if(lbFilter_current==='certified') filtered = lbAllData.filter(r=>r.pct>=80);
+  if(lbFilter_current==='needs_work') filtered = lbAllData.filter(r=>r.pct<80);
+
+  // Stats
+  const total = lbAllData.length;
+  const certified = lbAllData.filter(r=>r.pct>=80).length;
+  const avgPct = total>0 ? Math.round(lbAllData.reduce((s,r)=>s+r.pct,0)/total) : 0;
+  const topScore = total>0 ? Math.max(...lbAllData.map(r=>r.pct)) : 0;
+  document.getElementById('lb-stats-row').innerHTML = `
+    <div class="lb-stat"><div class="ls-num">${total}</div><div class="ls-lbl">Attempts</div></div>
+    <div class="lb-stat"><div class="ls-num">${certified}</div><div class="ls-lbl">Certified</div></div>
+    <div class="lb-stat"><div class="ls-num">${avgPct}%</div><div class="ls-lbl">Avg Score</div></div>
+    <div class="lb-stat"><div class="ls-num">${topScore}%</div><div class="ls-lbl">Top Score</div></div>
+  `;
+
+  const tbody = document.getElementById('lb-tbody');
+  const emptyEl = document.getElementById('lb-empty');
+  const tableEl = document.getElementById('lb-table');
+  tbody.innerHTML = '';
+  if(filtered.length===0){ emptyEl.style.display='block'; tableEl.style.display='none'; return; }
+  emptyEl.style.display='none'; tableEl.style.display='table';
+
+  filtered.forEach((r,i)=>{
+    const rank = i+1;
+    const rankClass = rank===1?'gold':rank===2?'silver':rank===3?'bronze':'';
+    const rankDisp = rank===1?'🥇':rank===2?'🥈':rank===3?'🥉':rank;
+    const scoreClass = r.pct>=80?'high':r.pct>=60?'mid':'low';
+    const badge = (r.badgeEarned===true||r.badgeEarned==='Yes') ? '🏅' : '—';
+    const dateStr = r.date ? new Date(r.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}) : '—';
+
+    const bars = LB_SEC_KEYS.map((key,si)=>{
+      const sp = Number(r[key]||0);
+      const bc = sp>=80?'#22c55e':sp>=60?'#f59e0b':'#ef4444';
+      return `<div title="${LB_SEC_FULL[si]}: ${sp}%" style="display:inline-block;width:10px;height:18px;background:${bc};border-radius:2px;opacity:.85;margin-right:2px;vertical-align:middle;"></div>`;
+    }).join('');
+
+    // Main row
+    const tr = document.createElement('tr');
+    tr.className = 'main-row';
+    tr.innerHTML = `
+      <td><span class="lb-rank ${rankClass}">${rankDisp}</span></td>
+      <td class="lb-name-cell">${escHtml(r.name)}</td>
+      <td><span class="lb-score-pill ${scoreClass}">${r.pct}%</span></td>
+      <td class="lb-profile-chip">${r.profileIcon||''} ${escHtml(r.profileName||'')}</td>
+      <td class="lb-badge-icon">${badge}</td>
+      <td>${bars}</td>
+      <td class="lb-date">${dateStr}</td>
+      <td><span class="lb-expand-arrow">▾</span></td>
+    `;
+    tr.onclick = ()=>toggleLbDetail(i);
+    tbody.appendChild(tr);
+
+    // Detail row
+    const dtr = document.createElement('tr');
+    dtr.className = 'lb-detail-row'; dtr.id = `lbdetail-${i}`;
+    const dtd = document.createElement('td');
+    dtd.className = 'lb-detail-cell'; dtd.colSpan = 8;
+    dtd.innerHTML = buildLbDetail(r);
+    dtr.appendChild(dtd);
+    tbody.appendChild(dtr);
+  });
+}
+
+function buildLbDetail(r){
+  const modRows = LB_SEC_KEYS.map((key,i)=>{
+    const sp = Number(r[key]||0);
+    const cls = sp>=80?'g':sp>=60?'m':'r';
+    return `<div class="lb-mod"><span class="lb-mod-name">${LB_SEC_FULL[i]}</span><div class="lb-mod-bar"><div class="lb-mod-fill" style="width:${sp}%"></div></div><span class="lb-mod-pct ${cls}">${sp}%</span></div>`;
+  }).join('');
+
+  let coachHTML = '';
+  if(r.coachingNotes){
+    r.coachingNotes.split(' || ').forEach(p=>{
+      const isStr = p.charAt(0)==='✓';
+      const cls = isStr?'s':'d';
+      const lbl = isStr?'✓ Strength':'⚑ Develop';
+      const text = p.replace(/^[✓⚑]\s[^:]+:\s/,'');
+      coachHTML += `<div class="lb-note ${cls}"><div class="lb-note-lbl">${lbl}</div>${escHtml(text)}</div>`;
+    });
+  } else {
+    coachHTML = '<p style="color:var(--grey-mid);font-size:.8rem;">No coaching notes recorded for this attempt.</p>';
+  }
+
+  return `<div class="lb-detail-inner">
+    <div class="lb-detail-box"><h4>Module Scores</h4>${modRows}</div>
+    <div class="lb-detail-box"><h4>Coaching Notes</h4>${coachHTML}</div>
+  </div>`;
+}
+
+function toggleLbDetail(i){
+  const detail = document.getElementById(`lbdetail-${i}`);
+  if(!detail) return;
+  const isOpen = detail.classList.contains('show');
+  document.querySelectorAll('.lb-detail-row.show').forEach(d=>d.classList.remove('show'));
+  document.querySelectorAll('.main-row.expanded').forEach(m=>m.classList.remove('expanded'));
+  if(!isOpen){
+    detail.classList.add('show');
+    detail.previousElementSibling.classList.add('expanded');
+  }
+}
+
+function lbFilter(type, btn){
+  lbFilter_current = type;
+  document.querySelectorAll('.lb-filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderLeaderboard();
+}
+
+function escHtml(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function exportCSV(){
+  if(!lbAllData.length){ alert('No results to export yet.'); return; }
+  const headers = ['Rank','Name','Score %','Correct','Total','Profile','Badge Earned',
+    'Recognise %','Map %','Qualify %','Apply %','Legal %','Coaching Notes','Date'];
+  const rows = lbAllData.map((r,i)=>[
+    i+1, r.name, r.pct, r.correct, r.total, r.profileName,
+    (r.badgeEarned===true||r.badgeEarned==='Yes')?'Yes':'No',
+    r.recognize||0, r.map||0, r.qualify||0, r.apply||0, r.legal||0,
+    (r.coachingNotes||'').replace(/\|\|/g,';'),
+    r.date ? new Date(r.date).toLocaleDateString('en-GB') : ''
+  ].map(v=>`"${String(v||'').replace(/"/g,'""')}"`).join(','));
+  const csv = [headers.join(','), ...rows].join('\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download = 'WS_Accreditation_Results.csv';
+  a.click();
+}
+
+// ═══════════════════════════════════════════════════
+// RESULTS
+// ═══════════════════════════════════════════════════
+const PROFILES=[
+  {min:0,max:39,level:0,name:'Novice',icon:'🌱',desc:'Keep building your foundations',summary:'Your fundamentals need more work before taking WS opportunities to market. Focus on the core product definitions, the four US offerings, and the key differences between Staff Aug and Workforce Services — these are the foundation of every client conversation.'},
+  {min:40,max:55,level:1,name:'Learner',icon:'📖',desc:'Good start — sharpen your commercial edge',summary:'You understand the basics but have gaps in commercial positioning and objection handling. Practise your client narrative — what does the client gain, why now, and how does this differ from what they already have?'},
+  {min:56,max:71,level:2,name:'Practitioner',icon:'⚡',desc:'Solid knowledge — apply it under pressure',summary:'Your product knowledge is solid but application to complex client scenarios needs work. Focus on objection handling and legal classification — these are the areas that block deals in the field.'},
+  {min:72,max:83,level:3,name:'Certified',icon:'🎖️',desc:'Ready to take WS to market',summary:'Strong performance across the board. You\'re in the certified range — demonstrate this in a real client conversation within 30 days. A few gaps remain; review your weaker sections for consistency.'},
+  {min:84,max:100,level:4,name:'Pro',icon:'🏆',desc:'Workforce Services champion',summary:'Outstanding. You demonstrate comprehensive knowledge, sharp commercial positioning, and command of the full WS portfolio. You\'re equipped to lead client conversations, coach peers, and bring real opportunities to market within 30 days.'}
+];
+const COACH={
+  recognize:{strength:'You can read client situations accurately and classify engagements correctly — a critical foundation for every WS conversation.',develop:"Revisit the classification signals for each offering. The key test for WTS is formal acceptance criteria. The key test for WSS is coordination and management burden. If the client's managers still own execution, it's Staff Aug."},
+  map:{strength:'You know which WSS capability to lead with and how to connect client pain to the right part of the solution.',develop:"Practise mapping specific client pain to specific WSS capabilities. Enhanced Onboarding = ramp inconsistency. Operational Services = coordination overload. Knowledge Capture = continuity loss. Performance Optimisation = quality variance."},
+  qualify:{strength:'Your discovery questions surface execution gaps effectively — keeping the conversation in WSS territory rather than defaulting back to staffing.',develop:'Focus on questions that reveal ownership, coordination breakdowns, and what happens when things go wrong. Avoid timeline, headcount, and budget questions in discovery — these anchor the conversation in staffing mode.'},
+  apply:{strength:'You handle live client conversations confidently — repositioning objections, protecting the engagement structure, and avoiding the pull back to staffing.',develop:"Practise the key reframes: the MSP classification response, the cost objection (total cost vs line-item), the 'works fine now' positioning challenge, and the 'not ready yet' qualification discipline. These come up in every WS deal."},
+  legal:{strength:'You have solid command of classification, the delivery process, liability limits, and the WS pricing structure.',develop:'The legal and commercial content needs more focus. Critical areas: contingent labour vs professional services classification, WTS liability caps ($1M minimum, sector insurance minimums), the five-stage delivery process, and the Service Fee + Deliverable Fee + Labour pricing formula.'}
+};
+
+function showResults(name, data){
+  showScreen('screen-results');
+  // Use pre-computed data from name-capture step, or compute fresh for retake
+  let pct, correct, total, profile;
+  if(data){
+    pct=data.pct; correct=data.correct; total=data.total; profile=data.profile;
+  } else {
+    total=allQ.length;
+    correct=answers.filter(a=>a.correct).length;
+    pct=Math.round((correct/total)*100);
+    profile=PROFILES.find(p=>pct>=p.min&&pct<=p.max)||PROFILES[0];
+  }
+
+  // Personalised greeting
+  const greeting = name ? `${name.split(' ')[0]}, here are your results` : 'Your Results';
+  const heroEl = document.querySelector('.score-hero');
+  let greetEl = document.getElementById('r-greeting');
+  if(!greetEl){
+    greetEl = document.createElement('p');
+    greetEl.id = 'r-greeting';
+    greetEl.style.cssText = 'font-family:Syne,sans-serif;font-size:1rem;color:var(--grey-light);margin-bottom:1rem;';
+    heroEl.insertBefore(greetEl, heroEl.firstChild);
+  }
+  greetEl.textContent = greeting;
+
+  setTimeout(()=>{
+    const circ=427;
+    document.getElementById('ring-fill').style.strokeDashoffset=circ-(pct/100)*circ;
+    document.getElementById('r-pct').textContent=pct+'%';
+    document.getElementById('r-pts').textContent=`${correct}/${total}`;
+  },200);
+  document.getElementById('p-icon').textContent=profile.icon;
+  document.getElementById('p-name').textContent=profile.name;
+  document.getElementById('p-desc').textContent=profile.desc;
+  document.getElementById('r-summary').textContent=profile.summary;
+  document.querySelectorAll('.scale-node').forEach(n=>{
+    n.classList.remove('active');
+    if(parseInt(n.dataset.l)===profile.level)n.classList.add('active');
+  });
+  // section breakdown
+  const sr=document.getElementById('sec-results'); sr.innerHTML='';
+  SECTIONS.forEach(sec=>{
+    const sc=secScores[sec.id];
+    const sp=sc.total>0?Math.round((sc.correct/sc.total)*100):0;
+    const cc=sp>=80?'good':sp>=60?'mid':'low';
+    const card=document.createElement('div'); card.className='src-card';
+    card.innerHTML=`<span class="src-icon">${sec.icon}</span><div class="src-info"><div class="src-name">${sec.name}</div><div class="src-bar-wrap"><div class="src-bar" style="width:${sp}%"></div></div></div><span class="src-score ${cc}">${sc.correct}/${sc.total}</span>`;
+    sr.appendChild(card);
+  });
+  // coaching
+  const cc=document.getElementById('coach-cards'); cc.innerHTML='';
+  SECTIONS.forEach(sec=>{
+    const sc=secScores[sec.id];
+    const sp=sc.total>0?Math.round((sc.correct/sc.total)*100):0;
+    const isStr=sp>=70;
+    const crd=document.createElement('div'); crd.className=`coach-card ${isStr?'strength':'develop'}`;
+    crd.innerHTML=`<div class="coach-hdr"><span>${sec.icon}</span><span class="coach-lbl">${isStr?'✓ Strength':'⚑ Develop'} · ${sec.name}</span></div><p>${isStr?COACH[sec.id].strength:COACH[sec.id].develop}</p>`;
+    cc.appendChild(crd);
+  });
+  // badge
+  drawBadge(pct, profile.name, profile.icon, name||'');
+  const ba=document.getElementById('badge-actions');
+  const bm=document.getElementById('badge-msg');
+  if(pct>=80){
+    bm.textContent='Congratulations! Download your certified badge for LinkedIn and email signatures.';
+    ba.innerHTML=`<button class="btn-dl" onclick="downloadBadge()">⬇ Download Certified Badge</button>`;
+    launchConfetti();
+  } else {
+    bm.textContent=`You need 80% to earn your badge. You scored ${pct}% — ${80-pct}% more needed. Retake to unlock!`;
+    ba.innerHTML=`<div class="btn-locked">🔒 Badge locked — score 80%+ to unlock</div>`;
+  }
+}
+
+function drawBadge(pct,pName,icon,personName){
+  const cv=document.getElementById('badgeCanvas');
+  const ctx=cv.getContext('2d');
+  const w=180,h=180;
+  ctx.clearRect(0,0,w,h);
+  const bg=ctx.createLinearGradient(0,0,w,h);
+  bg.addColorStop(0,'#1c1c25'); bg.addColorStop(1,'#1a1228');
+  ctx.fillStyle=bg;
+  ctx.beginPath(); ctx.roundRect(0,0,w,h,18); ctx.fill();
+  const border=ctx.createLinearGradient(0,0,w,h);
+  border.addColorStop(0,'#e91e8c'); border.addColorStop(1,'#7c3aed');
+  ctx.strokeStyle=border; ctx.lineWidth=2.5;
+  ctx.beginPath(); ctx.roundRect(1,1,w-2,h-2,17); ctx.stroke();
+  const stripe=ctx.createLinearGradient(0,0,w,0);
+  stripe.addColorStop(0,'#e91e8c'); stripe.addColorStop(1,'#7c3aed');
+  ctx.fillStyle=stripe; ctx.beginPath(); ctx.roundRect(0,0,w,28,[18,18,0,0]); ctx.fill();
+  ctx.fillStyle='white'; ctx.font='bold 8.5px sans-serif'; ctx.textAlign='center';
+  ctx.fillText('s|three · WORKFORCE SERVICES',w/2,18);
+  ctx.font='34px serif'; ctx.fillText(icon,w/2,74);
+  const sg=ctx.createLinearGradient(0,0,w,0);
+  sg.addColorStop(0,'#e91e8c'); sg.addColorStop(1,'#a855f7');
+  ctx.fillStyle=sg; ctx.font='bold 24px sans-serif'; ctx.fillText(pct+'%',w/2,106);
+  ctx.fillStyle='#a855f7'; ctx.font='bold 10px sans-serif'; ctx.fillText(pName.toUpperCase(),w/2,122);
+  // Person name on badge
+  if(personName){
+    const dn = personName.length>22 ? personName.slice(0,21)+'…' : personName;
+    ctx.fillStyle='#e8e6f0'; ctx.font='bold 9px sans-serif'; ctx.fillText(dn,w/2,138);
+  }
+  ctx.fillStyle='#8a8a9a'; ctx.font='8px sans-serif';
+  ctx.fillText('CERTIFIED SELLER', w/2, personName ? 152 : 144);
+  ctx.fillStyle='#4a4a5a'; ctx.font='7px sans-serif';
+  ctx.fillText(new Date().getFullYear(), w/2, personName ? 166 : 158);
+}
+function downloadBadge(){
+  const cv=document.getElementById('badgeCanvas');
+  const a=document.createElement('a');
+  a.download='WS-CertifiedSeller-Badge.png'; a.href=cv.toDataURL('image/png'); a.click();
+}
+function launchConfetti(){
+  const colors=['#e91e8c','#7c3aed','#f472b6','#a855f7','#c026d3','#ffffff'];
+  for(let i=0;i<80;i++){
+    const p=document.createElement('div'); p.className='confetti-piece';
+    p.style.left=Math.random()*100+'vw'; p.style.top='-10px';
+    p.style.background=colors[Math.floor(Math.random()*colors.length)];
+    p.style.width=(6+Math.random()*8)+'px'; p.style.height=(6+Math.random()*8)+'px';
+    p.style.animationDuration=(1.5+Math.random()*2.5)+'s';
+    p.style.animationDelay=(Math.random()*1.5)+'s';
+    p.style.borderRadius=Math.random()>.5?'50%':'2px';
+    document.body.appendChild(p);
+    p.addEventListener('animationend',()=>p.remove());
+  }
+}
+function retake(){ pendingResultData=null; startQuiz(); }
+</script>
+</body>
+</html>
+
